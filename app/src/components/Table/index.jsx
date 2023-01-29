@@ -10,7 +10,7 @@ export function Table({list}) {
     }
 
     return (
-        <div className='text-xl font-semibold text-white flex flex-col gap-4 p-8 bg-slate-700 w-[50vw] min-w-[300px] rounded-md'>
+        <div className='text-xl font-semibold text-white flex flex-col gap-4 p-8 bg-slate-900 w-[50vw] min-w-[300px] rounded-md'>
             <div className='flex gap-2'>
                 <img src="/icons/Folders.svg" alt=""/>
                 <h1>Repositórios</h1>
@@ -27,7 +27,7 @@ export function Table({list}) {
                     {
                         list.map((item) => {
                             return (
-                            <tr className='select-none flex justify-between rounded-md ring-1 ring-gray-900 hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
+                            <tr key={item.id} className='select-none flex justify-between rounded-md ring-1 ring-gray-900 hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
                                 <td className='w-1/3 text-lg font-medium p-1'>{item.name}</td>
                                 <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.created_at)}</td>
                                 <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.updated_at)}</td>
