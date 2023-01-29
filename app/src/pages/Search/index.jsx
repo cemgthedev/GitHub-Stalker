@@ -4,7 +4,7 @@ import { Button } from '../../components/Button'
 import '../../styles/global.css'
 import { useState } from 'react';
 
-export function Login() {
+export function Search() {
     const [userName, setUserName] = useState('nome');
     
     return (
