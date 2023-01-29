@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { Header } from '../../components/Header';
 import { Card } from '../../components/Card';
+import { Table } from '../../components/Table';
 import { Error } from '../../components/Error'
 
 import '../../styles/global.css'
@@ -12,14 +13,19 @@ export function Home() {
     const {userNameResearched} = useParams();
     const [userName, setUserName] = useState(userNameResearched);
     const [user, setUser] = useState(null);
+    const [repos, setRepos] = useState([]);
 
     useEffect(() => {
         async function getUser() {
             try {
                 const url = `https://api.github.com/users/${userName}`;
-                const response = await axios.get(url);
-                const data = response.data;
-                setUser(data);
+                const responseGetUser = await axios.get(url);
+                const userData = responseGetUser.data;
+                setUser(userData);
+
+                const responseGetRepos = await axios.get(userData.repos_url);
+                const dataRepos = responseGetRepos.data;
+                setRepos(dataRepos);
             } catch(error) {
                 console.log(error);
             }
@@ -53,11 +59,10 @@ export function Home() {
             second: '2-digit'
         });
 
-        console.log(created_at_date)
         return (
-            <div className='flex flex-col items-center'>
+            <div className='flex flex-col items-center gap-4'>
                 <Header location={user.location} html_url={user.html_url} email={user.email} twitter_username={user.twitter_username}/>
-                <main>
+                <main className='flex flex-col gap-4'>
                     <Card data = {
                         {
                             avatar_url: user.avatar_url,
@@ -72,6 +77,7 @@ export function Home() {
                             following: user.following
                         }
                     }/>
+                    <Table list={ repos }/>
                 </main>
             </div>
         );

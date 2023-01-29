@@ -8,7 +8,7 @@ export function Header(props) {
     
 
     return (
-        <header className='w-screen flex items-center justify-between p-2'>
+        <header className='w-screen flex items-center justify-between p-4'>
             {
                 props.location != null &&
                 <a className='bg-slate-700 flex gap-2 items-center p-1 rounded-md hover:bg-red-600' href={`https://www.google.com.br/maps/search/${props.location}`} target='_blank'>
