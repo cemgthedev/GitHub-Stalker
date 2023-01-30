@@ -10,9 +10,9 @@ export function List({ handleChange, list }) {
             {
                 list.map(item => {
                     return (
-                        <div onClick={e => handleChange(item.login)} key={item.id} className=' hover:cursor-pointer bg-gray-50 text-slate-900 flex items-center gap-4 ring-1 ring-gray-900 p-2 rounded-md hover:bg-sky-500'>
+                        <div onClick={e => handleChange(item.login)} key={item.id} className='hover:cursor-pointer bg-gray-50 text-slate-900 flex items-center gap-4 p-2 rounded-md hover:bg-sky-500'>
                             <img className='w-[128px] h-[128px] rounded-[100%]' src={item.avatar_url} alt="..." />
-                            <h1 className='select-none'>{item.login}</h1>
+                            <h1 className='select-none w-1/3 break-words'>{item.login}</h1>
                         </div>
                     );
                 })

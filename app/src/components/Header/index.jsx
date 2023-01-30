@@ -36,7 +36,7 @@ export function Header(props) {
                     </a>
                 }
             </div>
-            <a href={window.location.href} className='bg-slate-900 flex gap-2 items-center rounded-md hover:bg-green-500'>
+            <a href={window.location.href} className='bg-slate-900 flex gap-2 items-center rounded-md hover:bg-sky-500'>
                         <img src="/icons/HouseLine.svg" alt="Twitter" />
             </a>
         </header>
