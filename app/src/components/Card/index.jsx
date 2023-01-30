@@ -3,7 +3,7 @@ import '../../styles/global.css'
 export function Card({ data }) {
     return (
         <div className='text-xl font-semibold text-white bg-slate-900 flex flex-col gap-8 w-[50vw] min-w-[300px] p-8 rounded-md'>
-            <div className='flex items-center gap-4 ring-1 ring-gray-50 p-2 rounded-md hover:ring-sky-500'>
+            <div className='flex items-center gap-4 ring-1 ring-gray-50 p-2 rounded-md hover:ring-sky-500 hover:text-sky-500'>
                 <img className='w-[128px] h-[128px] rounded-[100%]' src={data.avatar_url} alt="..." />
                 <h1>{data.name}</h1>
             </div>
