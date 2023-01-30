@@ -6,6 +6,7 @@ import { Header } from '../../components/Header';
 import { Card } from '../../components/Card';
 import { Table } from '../../components/Table';
 import { List } from '../../components/List';
+import { Footer } from '../../components/Footer';
 import { Error } from '../../components/Error'
 
 import '../../styles/global.css'
@@ -97,6 +98,7 @@ export function Home() {
                     <Table list={ repos }/>
                     <List handleChange={e => setUserName(e)} list={ followers }/>
                 </main>
+                <Footer/>
             </div>
         );
     } else {

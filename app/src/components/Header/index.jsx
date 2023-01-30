@@ -31,11 +31,14 @@ export function Header(props) {
                 }
                 {
                     props.twitter_username != null &&
-                    <a className='bg-slate-900 rounded-md hover:bg-green-500' href="" target='_blank'>
+                    <a className='bg-slate-900 rounded-md hover:bg-green-500' href={`https://twitter.com/${props.twitter_username}`} target='_blank'>
                         <img src="/icons/TwitterLogo.svg" alt="Twitter" />
                     </a>
                 }
             </div>
+            <a href={window.location.href} className='bg-slate-900 flex gap-2 items-center rounded-md hover:bg-green-500'>
+                        <img src="/icons/HouseLine.svg" alt="Twitter" />
+            </a>
         </header>
     );
 }
