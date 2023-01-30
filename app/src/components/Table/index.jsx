@@ -23,8 +23,7 @@ export function Table({list}) {
                         <td className='w-1/3 text-center p-1'>Última Atualização</td>
                     </tr>
                 </thead>
-                <hr className='bg-gray-900'/>
-                <tbody className='h-[25vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
+                <tbody id='table' className='h-[25vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
                     {
                         list.map((item) => {
                             return (

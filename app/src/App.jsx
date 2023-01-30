@@ -9,7 +9,7 @@ export function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Search/>}/>
-        <Route path='/stalking/:userNameResearched' element={<Home/>} />
+        <Route path='/:userNameHome/stalking/:userNameResearched' element={<Home/>} />
       </Routes>
     </Router>
   )

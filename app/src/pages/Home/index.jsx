@@ -12,7 +12,7 @@ import { Error } from '../../components/Error'
 import '../../styles/global.css'
 
 export function Home() {
-    const {userNameResearched} = useParams();
+    const {userNameHome, userNameResearched} = useParams();
     const [pageYPosition, setPageYPosition] = useState(0);
     const [userName, setUserName] = useState(userNameResearched);
     const [user, setUser] = useState(null);
@@ -25,8 +25,6 @@ export function Home() {
 
     useEffect(() => {
         async function getUser() {
-            window.scrollTo(0, 0);
-
             try {
                 const url = `https://api.github.com/users/${userName}`;
                 const responseGetUser = await axios.get(url);
@@ -39,6 +37,7 @@ export function Home() {
 
                 const responseGetFollowers = await axios.get(userData.followers_url);
                 const dataFollowers = responseGetFollowers.data;
+                console.log(dataFollowers);
                 setFollowers(dataFollowers);
             } catch(error) {
                 console.log(error);
@@ -79,7 +78,7 @@ export function Home() {
                     pageYPosition > 100 &&
                     <button onClick={() => window.scrollTo(0, 0)} className="font-bold text-2xl bg-slate-900 text-white flex justify-center p-1 w-[32px] h-[32px] fixed top-4 right-4 rounded-[100%]">^</button>
                 }
-                <Header location={user.location} html_url={user.html_url} email={user.email} twitter_username={user.twitter_username}/>
+                <Header login={userNameHome} location={user.location} html_url={user.html_url} email={user.email} twitter_username={user.twitter_username}/>
                 <main className='flex flex-col gap-4'>
                     <Card data = {
                         {
@@ -96,7 +95,7 @@ export function Home() {
                         }
                     }/>
                     <Table list={ repos }/>
-                    <List handleChange={e => setUserName(e)} list={ followers }/>
+                    <List login={userNameHome} handleChange={e => setUserName(e)} list={ followers }/>
                 </main>
                 <Footer/>
             </div>

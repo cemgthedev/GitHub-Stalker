@@ -36,8 +36,8 @@ export function Header(props) {
                     </a>
                 }
             </div>
-            <a title='voltar para a home' href={window.location.href} className='bg-slate-900 flex gap-2 items-center rounded-md hover:bg-sky-500'>
-                        <img src="/icons/HouseLine.svg" alt="Twitter" />
+            <a title='voltar para a home' className='bg-slate-900 rounded-md hover:bg-sky-500' href={`/${props.login}/stalking/${props.login}`}>
+                <img src="/icons/HouseLine.svg" alt="Home" />
             </a>
         </header>
     );
