@@ -88,7 +88,7 @@ export function Home() {
                     <Table list={ repos }/>
                     <List login={userNameHome} list={ followers }/>
                 </main>
-                <button onClick={() => window.scrollTo(0, 0)} className="font-bold text-2xl bg-slate-900 text-white flex justify-center p-1 w-[32px] h-[32px] fixed top-4 right-4 rounded-[100%]">^</button>
+                <button onClick={() => window.scrollTo(0, 0)} title='voltar para o topo da página' className="animate-bounce font-bold text-2xl bg-slate-900 text-white flex justify-center p-1 w-[32px] h-[32px] fixed top-4 right-4 rounded-[100%]">^</button>
                 <Footer/>
             </div>
         );
