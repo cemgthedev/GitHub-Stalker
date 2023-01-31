@@ -12,7 +12,7 @@ export function Search() {
             <h1 className='font-sans text-4xl font-bold'>GitHub Stalker</h1>
             <figure className='flex flex-col items-center'>
                 <img className='animate-bounce w-[110px] h-[110px]' src="/GithubLogo.svg" alt="..." />
-                <figcaption className='text-lg'>Pulando de alegria pra estalkear</figcaption>
+                <figcaption className='text-lg border-t-2 border-t-white'>pulando de alegria pra estalkear</figcaption>
             </figure>
             <form action={`/${userName}/stalking/${userName}`} method="get">
                 <h2 className='text-xl font-sans font-light'>Nome de Usuário</h2>
