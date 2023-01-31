@@ -49,7 +49,7 @@ export function Table({list}) {
             <div className='flex flex-wrap gap-2'>
                 {
                     Array.from(setOfTechnologies).map(item => {
-                        return <h1 key={item} className={`flex p-1 rounded-md hover:bg-opacity-60 ${listColors[Math.floor(Math.random() * listColors.length)]}`} >{item}</h1>
+                        return <h1 key={item} className={`select-none flex p-1 cursor-pointer rounded-md hover:bg-opacity-60 ${listColors[Math.floor(Math.random() * listColors.length)]}`} >{item}</h1>
                     })
                 }
             </div>
@@ -65,11 +65,11 @@ export function Table({list}) {
                         <td className='w-1/3 text-center p-1'>Última Atualização</td>
                     </tr>
                 </thead>
-                <tbody id='table' className='h-[25vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
+                <tbody id='table' className='min-h-0 max-h-[25vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
                     {
                         list.map((item) => {
                             return (
-                            <tr key={item.id} className='select-none flex justify-between rounded-md ring-1 ring-gray-900 hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
+                            <tr key={item.id} className='select-none cursor-pointer flex justify-between rounded-md ring-1 ring-gray-900 hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
                                 <td className='w-1/3 text-lg font-medium p-1'>{item.name}</td>
                                 <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.created_at)}</td>
                                 <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.updated_at)}</td>

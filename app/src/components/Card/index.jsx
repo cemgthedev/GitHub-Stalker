@@ -12,7 +12,7 @@ export function Card({ data }) {
                     <img src="/icons/Fingerprint.svg" alt=""/>
                     <h1>Bio</h1>
                 </div>
-                <h1 className='h-min-[48px] bg-gray-50 text-gray-900 text-base font-medium p-2 rounded-md hover:bg-opacity-80'>{data.bio}</h1>
+                <h1 className='min-h-[48px] bg-gray-50 text-gray-900 text-base font-medium p-2 rounded-md hover:bg-opacity-80'>{data.bio}</h1>
             </div>
             <div className='flex justify-between'>
                 <figure className='flex flex-col items-center'>
