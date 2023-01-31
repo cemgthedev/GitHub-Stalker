@@ -8,11 +8,11 @@ export function Card({ data }) {
                 <h1>{data.name}</h1>
             </div>
             <div className='flex flex-col gap-2 justify-center'>
-                <div className='flex gap-2'>
+                <div className='flex items-center gap-2'>
                     <img src="/icons/Fingerprint.svg" alt=""/>
                     <h1>Bio</h1>
                 </div>
-                <h1 className='h-min-[48px] bg-gray-50 text-gray-900 text-base font-medium p-2 rounded-md hover:bg-gray-200'>{data.bio}</h1>
+                <h1 className='h-min-[48px] bg-gray-50 text-gray-900 text-base font-medium p-2 rounded-md hover:bg-opacity-80'>{data.bio}</h1>
             </div>
             <div className='flex justify-between'>
                 <figure className='flex flex-col items-center'>
@@ -32,15 +32,15 @@ export function Card({ data }) {
             </div>
             <div className='flex gap-4 justify-between'>
                 <figure className='flex flex-col gap-2 items-center w-[30%] text-center'>
-                    <div className='bg-green-700 w-[128px] h-[128px] text-4xl flex items-center justify-center rounded-[100%]'>{data.public_repos}</div>
+                    <div className='bg-green-700 hover:bg-opacity-60 w-[128px] h-[128px] text-4xl flex items-center justify-center rounded-[100%]'>{data.public_repos}</div>
                     <figcaption>Repositórios Públicos</figcaption>
                 </figure>
                 <figure className='flex flex-col gap-2 items-center w-[30%] text-center'>
-                    <div className='bg-green-500 w-[128px] h-[128px] text-4xl flex items-center justify-center rounded-[100%]'>{data.followers}</div>
+                    <div className='bg-green-500 hover:bg-opacity-60 w-[128px] h-[128px] text-4xl flex items-center justify-center rounded-[100%]'>{data.followers}</div>
                     <figcaption>Seguidores</figcaption>
                 </figure>
                 <figure className='flex flex-col gap-2 items-center w-[30%] text-center'>
-                    <div className='bg-green-300 w-[128px] h-[128px] text-4xl flex items-center justify-center rounded-[100%]'>{data.following}</div>
+                    <div className='bg-green-300 hover:bg-opacity-60 w-[128px] h-[128px] text-4xl flex items-center justify-center rounded-[100%]'>{data.following}</div>
                     <figcaption>Seguindo</figcaption>
                 </figure>
             </div>

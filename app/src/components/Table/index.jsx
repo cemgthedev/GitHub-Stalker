@@ -1,5 +1,29 @@
 import '../../styles/global.css'
 
+const listColors = [
+    'bg-green-300',
+    'bg-green-500',
+    'bg-green-700',
+    'bg-sky-300',
+    'bg-sky-500',
+    'bg-sky-700',
+    'bg-red-300',
+    'bg-red-500',
+    'bg-red-700',
+    'bg-amber-300',
+    'bg-amber-500',
+    'bg-amber-700',
+    'bg-indigo-300',
+    'bg-indigo-500',
+    'bg-indigo-700',
+    'bg-fuchsia-300',
+    'bg-fuchsia-500',
+    'bg-fuchsia-700',
+    'bg-cyan-300',
+    'bg-cyan-500',
+    'bg-cyan-700'
+]
+
 export function Table({list}) {
     function formattedDate(localDateTime) {
         return (new Date(localDateTime).toLocaleString('pt-br', {
@@ -9,9 +33,27 @@ export function Table({list}) {
         }));
     }
 
+    const setOfTechnologies = new Set();
+    list.map(item => {
+        setOfTechnologies.add(item.language);
+    })
+
+    setOfTechnologies.delete(null);
+
     return (
         <div className='text-xl font-semibold text-white flex flex-col gap-4 p-8 bg-slate-900 w-[50vw] min-w-[300px] rounded-md'>
-            <div className='flex gap-2'>
+            <div className='flex items-center gap-2'>
+                <img src="/icons/BracketsCurly.svg" alt=""/>
+                <h1>Tecnologias</h1>
+            </div>
+            <div className='flex flex-wrap gap-2'>
+                {
+                    Array.from(setOfTechnologies).map(item => {
+                        return <h1 key={item} className={`flex p-1 rounded-md hover:bg-opacity-60 ${listColors[Math.floor(Math.random() * listColors.length)]}`} >{item}</h1>
+                    })
+                }
+            </div>
+            <div className='flex items-center gap-2'>
                 <img src="/icons/Folders.svg" alt=""/>
                 <h1>Repositórios</h1>
             </div>

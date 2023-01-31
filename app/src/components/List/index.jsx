@@ -2,21 +2,21 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import '../../styles/global.css'
 
-export function List({ login, handleChange, list }) {
+export function List({ login, list }) {
     return (
         <div className='bg-slate-900 text-xl font-semibold text-white flex flex-col gap-4 w-[50vw] min-w-[300px] p-8 rounded-md'>
-            <div className='flex gap-2'>
+            <div className='flex items-center gap-2'>
                 <img src="/icons/UsersThree.svg" alt=""/>
                 <h1>Seguidores</h1>
             </div>
-            <div id='list' className='h-[75vh] flex flex-col gap-4 overflow-y-auto scrollbar-hide'>
+            <div id='list' className='h-[82vh] flex flex-col gap-4 overflow-y-auto scrollbar-hide'>
                 {
                     list.map(item => {
                         return (
                             <form action={`/${login}/stalking/${item.login}`} method="get">
-                                <button type='submit' onClick={e => handleChange(item.id)} key={item.id} className='w-full hover:cursor-pointer bg-gray-50 text-slate-900 flex items-center gap-4 p-2 rounded-md hover:bg-sky-500'>
+                                <button type='submit' key={item.id} className='w-full hover:cursor-pointer bg-gray-50 text-slate-900 flex items-center gap-2 p-2 rounded-md hover:bg-sky-500'>
                                     <img className='w-[128px] h-[128px] rounded-[100%]' src={item.avatar_url} alt="..." />
-                                    <h1 className='select-none w-1/3 break-words'>{item.login}</h1>
+                                    <h1 className='select-none text-left w-1/3 break-words'>{item.login}</h1>
                                 </button>
                             </form>
                         );
