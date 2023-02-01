@@ -28,7 +28,7 @@ const listColors = [
     'bg-cyan-700'
 ]
 
-export function Table({list}) {
+export function Table({handlePopUp, list}) {
     const [popUpVisible, setPopUpVisible] = useState(null);
 
     function formattedDate(localDateTime) {
@@ -63,31 +63,29 @@ export function Table({list}) {
                 <img src="/icons/Folders.svg" alt=""/>
                 <h1>Repositórios</h1>
             </div>
-            <table className='bg-gray-50 text-gray-900 break-words flex flex-col gap-2 p-4 rounded-md'>
-                <thead className='p-2'>
-                    <tr className='select-none flex justify-between'>
-                        <td className='w-1/3 p-1'>Nome</td>
-                        <td className='w-1/3 text-center p-1'>Criação</td>
-                        <td className='w-1/3 text-center p-1'>Última Atualização</td>
-                    </tr>
-                </thead>
-                <tbody id='table' className='min-h-0 max-h-[25vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
+            <div className='bg-gray-50 text-gray-900 break-words flex flex-col gap-2 p-4 rounded-md'>
+                <div className='select-none flex justify-between p-2'>
+                        <h1 className='w-1/3 p-1'>Nome</h1>
+                        <h1 className='w-1/3 text-center p-1'>Criação</h1>
+                        <h1 className='w-1/3 text-center p-1'>Última Atualização</h1>
+                </div>
+                <div id='table' className='min-h-0 max-h-[25vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
                     {
                         list.map((item) => {
                             return (
-                                <div>
-                                    <tr key={item.id} onClick={() => setPopUpVisible(item.id)} className='select-none cursor-pointer flex justify-between rounded-md ring-1 ring-gray-900 transition hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
-                                        <td className='w-1/3 text-lg font-medium p-1'>{item.name}</td>
-                                        <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.created_at)}</td>
-                                        <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.updated_at)}</td>
-                                    </tr>
+                                <>
+                                    <div key={item.id} onClick={() => setPopUpVisible(item.id)} className='select-none cursor-pointer flex justify-between rounded-md ring-1 ring-gray-900 transition hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
+                                        <h1 className='w-1/3 text-lg font-medium p-1'>{item.name}</h1>
+                                        <h1 className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.created_at)}</h1>
+                                        <h1 className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.updated_at)}</h1>
+                                    </div>
                                     <PopUp id={popUpVisible} handleVisible={setPopUpVisible} repository={item}/>
-                                </div>
+                                </>
                             )
                         })
                     }
-                </tbody>
-            </table>
+                </div>
+            </div>
         </div>
     );
 }

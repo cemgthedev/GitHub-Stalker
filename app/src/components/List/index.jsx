@@ -13,8 +13,8 @@ export function List({ login, list }) {
                 {
                     list.map(item => {
                         return (
-                            <form action={`/${login}/stalking/${item.login}`} method="get">
-                                <button type='submit' key={item.id} className='w-full hover:cursor-pointer bg-gray-50 text-slate-900 flex items-center gap-2 p-2 rounded-md transition hover:bg-sky-500'>
+                            <form key={item.id} action={`/${login}/stalking/${item.login}`} method="get">
+                                <button type='submit' className='w-full hover:cursor-pointer bg-gray-50 text-slate-900 flex items-center gap-2 p-2 rounded-md transition hover:bg-sky-500'>
                                     <img className='w-[128px] h-[128px] rounded-[100%]' src={item.avatar_url} alt="..." />
                                     <h1 className='select-none text-left w-1/3 break-words'>{item.login}</h1>
                                 </button>
