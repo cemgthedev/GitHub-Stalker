@@ -18,7 +18,7 @@ export function Search() {
                 <h2 className='text-xl font-sans font-light'>Nome de Usuário</h2>
                 <div className='flex gap-2'>
                     <Input  handleChange={e => setUserName(e)} placeholder='digite o nome de usuário'/>
-                    <Button name='search'/>
+                    <Button name='buscar'/>
                 </div>
             </form>
         </div>

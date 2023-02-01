@@ -9,7 +9,7 @@ export function List({ login, list }) {
                 <img src="/icons/UsersThree.svg" alt=""/>
                 <h1>Seguidores</h1>
             </div>
-            <div id='list' className='min-h-0 max-h-[82vh] flex flex-col gap-4 overflow-y-auto scrollbar-hide'>
+            <div id='list' className='min-h-0 max-h-[75vh] flex flex-col gap-4 overflow-y-auto scrollbar-hide'>
                 {
                     list.map(item => {
                         return (

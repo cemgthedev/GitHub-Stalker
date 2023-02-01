@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 import '../../styles/global.css'
+
+import { PopUp } from '../PopUp';
 
 const listColors = [
     'bg-green-300',
@@ -25,6 +29,8 @@ const listColors = [
 ]
 
 export function Table({list}) {
+    const [popUpVisible, setPopUpVisible] = useState(null);
+
     function formattedDate(localDateTime) {
         return (new Date(localDateTime).toLocaleString('pt-br', {
             day: '2-digit',
@@ -65,15 +71,19 @@ export function Table({list}) {
                         <td className='w-1/3 text-center p-1'>Última Atualização</td>
                     </tr>
                 </thead>
-                <tbody id='table' className='min-h-0 max-h-[27vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
+                <tbody id='table' className='min-h-0 max-h-[25vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
                     {
                         list.map((item) => {
                             return (
-                            <tr key={item.id} className='select-none cursor-pointer flex justify-between rounded-md ring-1 ring-gray-900 transition hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
-                                <td className='w-1/3 text-lg font-medium p-1'>{item.name}</td>
-                                <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.created_at)}</td>
-                                <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.updated_at)}</td>
-                            </tr>)
+                                <div>
+                                    <tr key={item.id} onClick={() => setPopUpVisible(item.id)} className='select-none cursor-pointer flex justify-between rounded-md ring-1 ring-gray-900 transition hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
+                                        <td className='w-1/3 text-lg font-medium p-1'>{item.name}</td>
+                                        <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.created_at)}</td>
+                                        <td className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.updated_at)}</td>
+                                    </tr>
+                                    <PopUp id={popUpVisible} handleVisible={setPopUpVisible} repository={item}/>
+                                </div>
+                            )
                         })
                     }
                 </tbody>
