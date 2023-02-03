@@ -28,8 +28,8 @@ const listColors = [
     'bg-cyan-700'
 ]
 
-export function Table({handlePopUp, list}) {
-    const [popUpVisible, setPopUpVisible] = useState(null);
+export function Table({ list }) {
+    let [openPopUp, setOpenPopUp] = useState(null);
 
     function formattedDate(localDateTime) {
         return (new Date(localDateTime).toLocaleString('pt-br', {
@@ -54,9 +54,9 @@ export function Table({handlePopUp, list}) {
             </div>
             <div className='flex flex-wrap gap-2'>
                 {
-                    Array.from(setOfTechnologies).map(item => {
-                        return <h1 key={item} className={`select-none flex p-1 cursor-pointer rounded-md transition hover:bg-opacity-60 ${listColors[Math.floor(Math.random() * listColors.length)]}`} >{item}</h1>
-                    })
+                    Array.from(setOfTechnologies).map(item => (
+                        <h1 key={item} className={`select-none flex p-1 cursor-pointer rounded-md transition hover:bg-opacity-60 ${listColors[Math.floor(Math.random() * listColors.length)]}`} >{item}</h1>
+                    ))
                 }
             </div>
             <div className='flex items-center gap-2'>
@@ -72,16 +72,14 @@ export function Table({handlePopUp, list}) {
                 <div id='table' className='min-h-0 max-h-[25vh] overflow-auto scrollbar-hide flex flex-col gap-4 p-2'>
                     {
                         list.map((item) => {
-                            return (
-                                <>
-                                    <div key={item.id} onClick={() => setPopUpVisible(item.id)} className='select-none cursor-pointer flex justify-between rounded-md ring-1 ring-gray-900 transition hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
+                                return <>
+                                    <button key={item.id} onClick={() => setOpenPopUp(item.id)} className='select-none cursor-pointer flex justify-between rounded-md ring-1 ring-gray-900 transition hover:bg-green-500 hover:shadow-md hover:shadow-gray-900'>
                                         <h1 className='w-1/3 text-lg font-medium p-1'>{item.name}</h1>
                                         <h1 className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.created_at)}</h1>
                                         <h1 className='w-1/3 text-base font-medium flex justify-center items-center p-1'>{formattedDate(item.updated_at)}</h1>
-                                    </div>
-                                    <PopUp id={popUpVisible} handleVisible={setPopUpVisible} repository={item}/>
+                                    </button>
+                                    <PopUp id={item.id} openPopUp={openPopUp} setOpenPopUp={setOpenPopUp} repository={item}/>
                                 </>
-                            )
                         })
                     }
                 </div>

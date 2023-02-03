@@ -9,9 +9,6 @@ import { List } from '../../components/List';
 import { Footer } from '../../components/Footer';
 import { NotFound } from '../NotFound';
 
-import {getDate, getTime} from '../../functions/dateFormatter';
-import '../../styles/global.css'
-
 export function Home() {
     const {userNameHome, userNameResearched} = useParams();
     const [user, setUser] = useState({});
@@ -44,15 +41,9 @@ export function Home() {
     }, []);
     
     if(user != null) {
-        const createdAtDate = getDate(user.created_at);
-        const createdAtTime = getTime(user.created_at);
-        
-        const updatedAtDate = getDate(user.updated_at);
-        const updatedAtTime = getTime(user.updated_at);
-
         return (
             <div className='flex flex-col items-center gap-4'>
-                <Header login={userNameHome} location={user.location} html_url={user.html_url} email={user.email} twitter_username={user.twitter_username}/>
+                <Header id='top' login={userNameHome} location={user.location} html_url={user.html_url} email={user.email} twitter_username={user.twitter_username}/>
                 <main className='flex flex-col gap-4'>
                     <Card data = { user }/>
                     <Table list = { repos }/>

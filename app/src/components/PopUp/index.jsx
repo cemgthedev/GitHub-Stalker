@@ -1,15 +1,17 @@
 import {getDate, getTime} from '../../functions/dateFormatter';
-import '../../styles/global.css'
 
-export function PopUp({id, handleVisible, repository}) {
+import { Dialog } from '@headlessui/react';
+
+export function PopUp({id, openPopUp, setOpenPopUp, repository}) {
     
     return (
-        <>
-            {
-                id == repository.id &&
-                <div className='bg-white fixed top-0 left-0 bottom-0 right-0 z-[999] pb-8 overflow-scroll overscroll-contain scrollbar-hide'>
-                    <div className='relative text-xl font-semibold text-white bg-slate-900 flex flex-col gap-4 m-auto mt-8 w-[50vw] min-w-[300px] p-8 rounded-md'>
-                        <button className='bg-red-700 text-white hover:bg-red-500 flex items-center justify-center absolute top-[-10px] right-[-10px] rounded-full w-[32px] h-[32px]' onClick={e => handleVisible(null)}>X</button>
+            
+                <Dialog
+                open = {id == openPopUp}
+                onClose = {() => setOpenPopUp(null)}
+                className='bg-white fixed inset-0 z-[999] pb-8 overflow-auto scrollbar-hide'>
+                    <Dialog.Panel className='relative text-xl font-semibold text-white bg-slate-900 flex flex-col gap-4 m-auto mt-8 w-[50vw] min-w-[300px] p-8 rounded-md'>
+                        <button className='bg-red-700 text-white hover:bg-red-500 flex items-center justify-center absolute top-[-10px] right-[-10px] rounded-full w-[32px] h-[32px]' onClick={() => setOpenPopUp(null)}>X</button>
                         <a href={repository.html_url} target='_blank' className='flex items-center gap-2 ring-1 ring-white rounded-md transition hover:ring-green-500 hover:text-green-500'>
                             <img src="/icons/Link.svg" alt=""/>
                             <h1>{repository.name}</h1>
@@ -55,9 +57,7 @@ export function PopUp({id, handleVisible, repository}) {
                                 <figcaption>Forks</figcaption>
                             </figure>
                         </div>
-                    </div>
-                </div>
-            }
-        </>
+                    </Dialog.Panel>
+                </Dialog>
     );
 }
