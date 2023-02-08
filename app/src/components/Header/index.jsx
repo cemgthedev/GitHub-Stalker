@@ -5,7 +5,7 @@ export function Header(props) {
     return (
         <header 
             className='z-[999] 
-                     bg-white 
+                     bg-slate-900
                      w-screen 
                      flex 
                      items-center 
