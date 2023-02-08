@@ -13,9 +13,8 @@ export function Input({ handleChange, placeholder }) {
                       p-2 
                       focus:outline-none 
                       hover:ring-opacity-80 
-                      focus:bg-opacity-80 
                       focus:ring-green-500 
-                      hover:bg-opacity-80' 
+                      hover:shadow-inner' 
             type="text" 
             placeholder={ placeholder } 
         />
