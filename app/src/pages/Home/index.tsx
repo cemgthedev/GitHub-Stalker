@@ -2,19 +2,22 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { Header } from '../../components/Header';
-import { Card } from '../../components/Card';
-import { Table } from '../../components/Table';
-import { List } from '../../components/List';
+import { RepositoryProps } from '../../components/PopUp';
+import { Header, HeaderProps } from '../../components/Header';
+import { Card, CardProps } from '../../components/Card';
+import { Table, TableProps } from '../../components/Table';
+import { List, ListProps } from '../../components/List';
 import { Footer } from '../../components/Footer';
 import { NotFound } from '../NotFound';
 
 import '../../styles/global.css';
 
+type UserProps = HeaderProps & CardProps;
+
 export function Home() {
-    const {userNameHome, userNameResearched} = useParams();
-    const [user, setUser] = useState({});
-    const [repos, setRepos] = useState([]);
+    const {userNameHome, userNameResearched} = useParams<string>();
+    const [user, setUser] = useState<UserProps>({} as UserProps);
+    const [repos, setRepos] = useState<RepositoryProps[]>([] as RepositoryProps[]);
     const [followers, setFollowers] = useState([]);
 
     useEffect(() => {
@@ -51,21 +54,42 @@ export function Home() {
                            gap-4'
             >
                 <Header 
-                    id='top' 
-                    login={userNameHome} 
-                    location={user.location} 
-                    html_url={user.html_url} 
-                    email={user.email} 
-                    twitter_username={user.twitter_username}
+                    data = {
+                        {
+                            login: userNameHome,
+                            location: user.location,
+                            html_url: user.html_url,
+                            email: user.email,
+                            twitter_username: user.twitter_username
+                        } as HeaderProps
+                    }
                 />
                 <main 
                     className='flex 
                                flex-col 
                                gap-4'
                 >
-                    <Card data = { user }/>
-                    <Table list = { repos }/>
-                    <List login={userNameHome} list={ followers }/>
+                    <Card data = {
+                        {
+                            name: user.name,
+                            bio: user.bio,
+                            avatar_url: user.avatar_url,
+                            created_at: user.created_at,
+                            updated_at: user.updated_at,
+                            public_repos: user.public_repos,
+                            followers: user.followers,
+                            following: user.following
+                        } as CardProps
+                    }/>
+                    <Table list = { {...repos} as RepositoryProps[] }/>
+                    <List 
+                        data = {
+                            {
+                                login: userNameHome,
+                                list: followers
+                            } as ListProps
+                        }
+                    />
                 </main>
                 <button 
                     onClick={() => window.scrollTo(0, 0)} 

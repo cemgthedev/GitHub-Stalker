@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 import '../../styles/global.css';
 
-import { Input } from '../../components/Input'
-import { Button } from '../../components/Button'
+import { Input, InputProps } from '../../components/Input'
+import { Button, ButtonProps } from '../../components/Button'
 
 export function Search() {
 
-    const [userName, setUserName] = useState('nome');
+    const [userName, setUserName] = useState<string>('nome');
     
     return (
         <div 
@@ -61,10 +61,18 @@ export function Search() {
                 </h2>
                 <div className='flex gap-2'>
                     <Input  
-                        handleChange={e => setUserName(e)} 
-                        placeholder='digite o nome de usuário'
+                        data = {
+                            {
+                                handleChange: (e:string) => setUserName(e),
+                                placeholder: 'digite o nome de usuário'
+                            } as InputProps
+                        }
                     />
-                    <Button name='buscar'/>
+                    <Button data = {
+                        {
+                            name: 'buscar'
+                        } as ButtonProps
+                    }/>
                 </div>
             </form>
         </div>

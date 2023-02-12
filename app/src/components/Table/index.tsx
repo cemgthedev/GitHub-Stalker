@@ -2,7 +2,9 @@ import { useState } from 'react';
 
 import '../../styles/global.css'
 
-import { PopUp } from '../PopUp';
+import { getDate } from '../../functions/dateFormatter'
+
+import { PopUp, PopUpProps, RepositoryProps } from '../PopUp';
 
 const listColors = [
     'bg-green-300',
@@ -28,23 +30,17 @@ const listColors = [
     'bg-cyan-700'
 ]
 
-export function Table({ list }) {
-    let [openPopUp, setOpenPopUp] = useState(null);
+export type TableProps = {
+    list: RepositoryProps[]
+}
 
-    function formattedDate(localDateTime) {
-        return (new Date(localDateTime).toLocaleString('pt-br', {
-            day: '2-digit',
-            month: '2-digit',
-            year: '2-digit'
-        }));
-    }
+export function Table({ list }: TableProps) {
+    let [openPopUp, setOpenPopUp] = useState<number | undefined>();
 
-    const setOfTechnologies = new Set();
+    const setOfTechnologies = new Set<string>();
     list.map(item => {
         setOfTechnologies.add(item.language);
     })
-
-    setOfTechnologies.delete(null);
 
     return (
         <div 
@@ -74,9 +70,9 @@ export function Table({ list }) {
                           gap-2'
             >
                 {
-                    Array.from(setOfTechnologies).map(item => (
+                    Array.from(setOfTechnologies).map(languageName => (
                         <h1 
-                            key={item} 
+                            key={languageName} 
                             className={`select-none 
                                         flex 
                                         p-1 
@@ -86,7 +82,7 @@ export function Table({ list }) {
                                         hover:bg-opacity-60 
                                         ${listColors[Math.floor(Math.random() * listColors.length)]}`} 
                         >
-                            { item }
+                            { languageName }
                         </h1>
                     ))
                 }
@@ -180,7 +176,7 @@ export function Table({ list }) {
                                                    items-center 
                                                    p-1'
                                     >
-                                        { formattedDate(item.created_at) }
+                                        { getDate(item.created_at) }
                                     </h1>
                                     <h1 
                                         className='w-1/3 
@@ -191,14 +187,18 @@ export function Table({ list }) {
                                                    items-center 
                                                    p-1'
                                     >
-                                        { formattedDate(item.updated_at) }
+                                        { getDate(item.updated_at) }
                                     </h1>
                                 </button>
                                 <PopUp 
-                                    id={item.id} 
-                                    openPopUp={openPopUp} 
-                                    setOpenPopUp={setOpenPopUp} 
-                                    repository={ item }
+                                    data = {
+                                        {
+                                            id : item.id,
+                                            openPopUp: openPopUp,
+                                            setOpenPopUp: setOpenPopUp,
+                                            repository: item
+                                        } as PopUpProps
+                                    }
                                 />
                             </>
                         ))

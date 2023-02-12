@@ -4,12 +4,32 @@ import '../../styles/global.css';
 
 import {getDate, getTime} from '../../functions/dateFormatter';
 
-export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
+export type RepositoryProps = {
+    id: number,
+    html_url: string,
+    language: string,
+    name: string,
+    description: string,
+    created_at: string,
+    updated_at: string,
+    stargazers_count: number,
+    watchers_count: number,
+    forks_count: number
+}
+
+export type PopUpProps = {
+    id: number,
+    openPopUp: number,
+    setOpenPopUp: Function,
+    repository: RepositoryProps
+}
+
+export function PopUp({ ...data }: PopUpProps) {
     
     return (
         <Dialog
-        open = {id == openPopUp}
-        onClose = {() => setOpenPopUp(null)}
+        open = {data.id == data.openPopUp}
+        onClose = {() => data.setOpenPopUp(null)}
         className='bg-white 
                     fixed 
                     inset-0 
@@ -47,12 +67,12 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                             rounded-full 
                             w-[32px] 
                             h-[32px]' 
-                    onClick={() => setOpenPopUp(null)}
+                    onClick={() => data.setOpenPopUp(null)}
                 >
                     X
                 </button>
                 <a 
-                    href={repository.html_url} 
+                    href={data.repository.html_url} 
                     target='_blank' 
                     className='flex 
                                 items-center 
@@ -65,7 +85,7 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                                 hover:text-green-500'
                 >
                     <img src="/icons/Link.svg" alt=""/>
-                    <h1>{ repository.name }</h1>
+                    <h1>{ data.repository.name }</h1>
                 </a>
                 <div 
                     className='flex 
@@ -73,7 +93,7 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                                 gap-2'
                 >
                     <img src="/icons/BracketsCurly.svg" alt=""/>
-                    <h1>{ repository.language }</h1>
+                    <h1>{ data.repository.language }</h1>
                 </div>
                 <div 
                     className='flex 
@@ -96,7 +116,7 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                                     transition 
                                     hover:bg-opacity-80'
                     >
-                        { repository.description }
+                        { data.repository.description }
                     </h1>
                 </div>
                 <div 
@@ -131,7 +151,7 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                                 className='text-base 
                                             font-medium'
                             >
-                                Dia { getDate(repository.created_at) } às { getTime(repository.created_at) } hr
+                                Dia { getDate(data.repository.created_at) } às { getTime(data.repository.created_at) } hr
                             </h1>
                         </figcaption>
                     </figure>
@@ -154,7 +174,7 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                         />
                         <figcaption className='flex flex-col gap-1 text-center'>
                             <h1>Última Atualização do Repositório</h1>
-                            <h1 className='text-base font-medium'>Dia {getDate(repository.updated_at)} às {getTime(repository.updated_at)} hr</h1>
+                            <h1 className='text-base font-medium'>Dia {getDate(data.repository.updated_at)} às {getTime(data.repository.updated_at)} hr</h1>
                         </figcaption>
                     </figure>
                 </div>
@@ -182,7 +202,7 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                                         justify-center 
                                         rounded-full'
                         >
-                            { repository.stargazers_count }
+                            { data.repository.stargazers_count }
                         </div>
                         <figcaption>Estrelas</figcaption>
                     </figure>
@@ -206,7 +226,7 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                                         justify-center 
                                         rounded-full'
                         >
-                            { repository.watchers_count }
+                            { data.repository.watchers_count }
                         </div>
                         <figcaption>Visualizações</figcaption>
                     </figure>
@@ -230,7 +250,7 @@ export function PopUp({ id, openPopUp, setOpenPopUp, repository }) {
                                         justify-center 
                                         rounded-full'
                         >
-                            { repository.forks_count }
+                            { data.repository.forks_count }
                         </div>
                         <figcaption>Forks</figcaption>
                     </figure>

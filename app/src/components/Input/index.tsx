@@ -1,10 +1,15 @@
 import '../../styles/global.css';
 
-export function Input({ handleChange, placeholder }) {
+export type InputProps = {
+    handleChange: Function,
+    placeholder: string
+}
+
+export function Input({ ...data }: InputProps) {
 
     return (
         <input 
-            onChange={e => handleChange(e.target.value)} 
+            onChange={e => data.handleChange(e.target.value)} 
             className='bg-gray-50 
                       ring-2 
                       ring-gray-50 
@@ -16,7 +21,7 @@ export function Input({ handleChange, placeholder }) {
                       focus:ring-green-500 
                       hover:shadow-inner' 
             type="text" 
-            placeholder={ placeholder } 
+            placeholder={ data.placeholder } 
         />
     );
 

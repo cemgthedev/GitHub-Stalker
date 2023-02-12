@@ -1,8 +1,19 @@
 import '../../styles/global.css';
 
-import {getDate, getTime} from '../../functions/dateFormatter';
+import {getDate, getTime} from '../../functions/dateFormatter'
 
-export function Card({ data }) {
+export type CardProps = {
+    name: string,
+    bio: string,
+    avatar_url: string,
+    created_at: string,
+    updated_at: string,
+    public_repos: number,
+    followers: number,
+    following: number
+}
+
+export function Card({ ...data }: CardProps) {
 
     return (
         <div 

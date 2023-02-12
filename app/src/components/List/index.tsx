@@ -1,6 +1,17 @@
 import '../../styles/global.css'
 
-export function List({ login, list }) {
+export type UsersProps = {
+    id: number,
+    login: string,
+    avatar_url: string
+}
+
+export type ListProps = {
+    login: string,
+    list: UsersProps[]
+}
+
+export function List({ ...data }: ListProps) {
     return (
         <div 
             className='bg-slate-900 
@@ -30,10 +41,10 @@ export function List({ login, list }) {
                           scrollbar-hide'
             >
                 {
-                    list.map(item => (
+                    data.list.map(item => (
                             <form 
                                 key={item.id} 
-                                action={`/${login}/stalking/${item.login}`} 
+                                action={`/${data.login}/stalking/${item.login}`} 
                                 method="get"
                             >
                                 <button 

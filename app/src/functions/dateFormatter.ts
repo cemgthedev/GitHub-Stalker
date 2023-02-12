@@ -1,4 +1,4 @@
-export function getDate(localDateTimeInString) {
+export function getDate(localDateTimeInString: string): string {
     const date = new Date(localDateTimeInString);
     const formattedData = date.toLocaleString('pt-br', {
         day: '2-digit',
@@ -8,7 +8,7 @@ export function getDate(localDateTimeInString) {
     return formattedData;
 }
 
-export function getTime(localDateTimeInString) {
+export function getTime(localDateTimeInString: string): string {
     const time = new Date(localDateTimeInString);
     const formattedTime = time.toLocaleString('pt-br', {
         hour: '2-digit',

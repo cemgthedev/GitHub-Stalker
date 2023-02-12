@@ -1,6 +1,10 @@
 import '../../styles/global.css';
 
-export function Button({ name }) {
+export type ButtonProps = {
+    name: string
+}
+
+export function Button({ data }: ButtonProps) {
 
     return (
         <button 

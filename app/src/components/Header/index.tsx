@@ -1,6 +1,14 @@
 import '../../styles/global.css';
 
-export function Header(props) {
+export type HeaderProps = {
+    login: string,
+    location: string,
+    html_url: string,
+    email: string,
+    twitter_username: string
+}
+
+export function Header({ ...data }: HeaderProps) {
     
     return (
         <header 
@@ -13,10 +21,10 @@ export function Header(props) {
                      p-4'
         >
             {
-                props.location != null &&
+                location != null &&
                 <a 
                     title='pesquisar localização no google maps'
-                    href={`https://www.google.com.br/maps/search/${ props.location }`} 
+                    href={`https://www.google.com.br/maps/search/${ location }`} 
                     target='_blank' 
                     className='bg-slate-900 
                                flex 
@@ -28,15 +36,15 @@ export function Header(props) {
                                hover:bg-red-500' 
                 >
                     <img src="/icons/MapPin.svg" alt="Cidade:" />
-                    <h2 className='text-sans text-xl text-white'>{ props.location }</h2>
+                    <h2 className='text-sans text-xl text-white'>{ data.location }</h2>
                 </a>
             }
             <div className='flex gap-2'>
                 {
-                    props.html_url != null &&
+                    data.html_url != null &&
                     <a 
                         title='pesquisar perfil no github' 
-                        href={props.html_url} 
+                        href={data.html_url} 
                         target='_blank'
                         className='bg-slate-900 
                                   rounded-md 
@@ -47,10 +55,10 @@ export function Header(props) {
                     </a>
                 }
                 {
-                    props.email != null &&
+                    data.email != null &&
                     <a 
                         title='mandar um email'
-                        href={`mailto:${props.email}`} 
+                        href={`mailto:${data.email}`} 
                         className='bg-slate-900 
                                   rounded-md 
                                   transition 
@@ -60,10 +68,10 @@ export function Header(props) {
                     </a>
                 }
                 {
-                    props.twitter_username != null &&
+                    data.twitter_username != null &&
                     <a 
                         title='pesquisar perfil no twitter'
-                        href={`https://twitter.com/${ props.twitter_username }`} 
+                        href={`https://twitter.com/${ data.twitter_username }`} 
                         target='_blank'
                         className='bg-slate-900 
                                   rounded-md 
@@ -77,7 +85,7 @@ export function Header(props) {
             <div className='flex gap-2'>
                 <a 
                     title='voltar para a home'
-                    href={`/${ props.login }/stalking/${ props.login }`} 
+                    href={`/${ data.login }/stalking/${ data.login }`} 
                     className='bg-slate-900 
                               rounded-md 
                               transition 
