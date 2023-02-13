@@ -4,7 +4,7 @@ export type ButtonProps = {
     name: string
 }
 
-export function Button({ data }: ButtonProps) {
+export function Button({ ...props }: ButtonProps) {
 
     return (
         <button 
@@ -19,7 +19,7 @@ export function Button({ data }: ButtonProps) {
                        hover:ring-green-500'
         >
             <img src="/icons/MagnifyingGlass.svg" alt="" />
-            { name }
+            { props.name }
         </button>
     );
 

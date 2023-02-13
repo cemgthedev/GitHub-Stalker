@@ -1,6 +1,11 @@
 import '../../styles/global.css';
 
-export function NotFound() {
+export type NotFoundProps = {
+    message: string,
+    textButton: string
+}
+
+export function NotFound({...props}:NotFoundProps) {
     
     return (
         <div 
@@ -34,7 +39,7 @@ export function NotFound() {
                                text-2xl 
                                font-bold'
                 >
-                    Usuário não encontrado
+                    { props.message }
                 </figcaption>
             </figure>
             <a 
@@ -48,7 +53,7 @@ export function NotFound() {
                          transition 
                          hover:bg-sky-500' 
             >
-                    Voltar a página de pesquisa
+                { props.textButton }
             </a>
         </div>
     );

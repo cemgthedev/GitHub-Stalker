@@ -7,8 +7,8 @@ import { Header, HeaderProps } from '../../components/Header';
 import { Card, CardProps } from '../../components/Card';
 import { Table, TableProps } from '../../components/Table';
 import { List, ListProps } from '../../components/List';
-import { Footer } from '../../components/Footer';
-import { NotFound } from '../NotFound';
+import { Footer, FooterProps } from '../../components/Footer'
+import { NotFound, NotFoundProps } from '../NotFound';
 
 import '../../styles/global.css';
 
@@ -16,7 +16,7 @@ type UserProps = HeaderProps & CardProps;
 
 export function Home() {
     const {userNameHome, userNameResearched} = useParams<string>();
-    const [user, setUser] = useState<UserProps>({} as UserProps);
+    const [user, setUser] = useState<UserProps | undefined>({} as UserProps);
     const [repos, setRepos] = useState<RepositoryProps[]>([] as RepositoryProps[]);
     const [followers, setFollowers] = useState([]);
 
@@ -26,7 +26,21 @@ export function Home() {
                 const url = `https://api.github.com/users/${userNameResearched}`;
                 const responseGetUser = await axios.get(url);
                 const userData = responseGetUser.data;
-                setUser(userData);
+                setUser({
+                    login: userData.login,
+                    location: userData.location,
+                    html_url: userData.html_url,
+                    email: userData.email,
+                    twitter_username: userData.twitter_username,
+                    name: userData.name,
+                    bio: userData.bio,
+                    avatar_url: userData.avatar_url,
+                    created_at: userData.created_at,
+                    updated_at: userData.updated_at,
+                    public_repos: userData.public_repos,
+                    followers: userData.followers,
+                    following: userData.following
+                } as UserProps);
 
                 const responseGetRepos = await axios.get(userData.repos_url);
                 const dataRepos = responseGetRepos.data;
@@ -38,14 +52,13 @@ export function Home() {
                 setFollowers(dataFollowers);
             } catch(error) {
                 console.log(error);
-                setUser(null);
             }
         }
 
         getUser();
     }, []);
     
-    if(user != null) {
+    if(user != undefined) {
         return (
             <div 
                 className='flex 
@@ -54,7 +67,7 @@ export function Home() {
                            gap-4'
             >
                 <Header 
-                    data = {
+                    {...
                         {
                             login: userNameHome,
                             location: user.location,
@@ -69,21 +82,29 @@ export function Home() {
                                flex-col 
                                gap-4'
                 >
-                    <Card data = {
-                        {
-                            name: user.name,
-                            bio: user.bio,
-                            avatar_url: user.avatar_url,
-                            created_at: user.created_at,
-                            updated_at: user.updated_at,
-                            public_repos: user.public_repos,
-                            followers: user.followers,
-                            following: user.following
-                        } as CardProps
-                    }/>
-                    <Table list = { {...repos} as RepositoryProps[] }/>
+                    <Card 
+                        {...
+                            {
+                                name: user.name,
+                                bio: user.bio,
+                                avatar_url: user.avatar_url,
+                                created_at: user.created_at,
+                                updated_at: user.updated_at,
+                                public_repos: user.public_repos,
+                                followers: user.followers,
+                                following: user.following
+                            } as CardProps
+                        }
+                    />
+                    <Table 
+                        {...
+                            {
+                                list: repos
+                            } as TableProps
+                        }
+                    />
                     <List 
-                        data = {
+                        {...
                             {
                                 login: userNameHome,
                                 list: followers
@@ -111,12 +132,30 @@ export function Home() {
                 >
                     ^
                 </button>
-                <Footer/>
+                <Footer
+                    {...
+                        {
+                            hrefInstagram: "https://www.instagram.com/_carlos_eduardo_mg/",
+                            hrefLinkedin: "https://www.linkedin.com/in/carlos-eduardo-moura-gomes-bb0ab7250/",
+                            hrefEmail: "mailto:cemg.the.dev@gmail.com",
+                            projectName: 'GitHub Stalker',
+                            licenceLabel: 'Copyright (c) 2023 Carlos Eduardo de Moura Gomes',
+                            hrefLicence: "https://github.com/cemgthedev/GitHub-Stalker/blob/main/LICENSE"
+                        } as FooterProps
+                    }
+                />
             </div>
         );
     } else {
         return (
-            <NotFound/>
+            <NotFound
+                {...
+                    {
+                        message: 'Usuário não encontrado',
+                        textButton: 'Voltar a página de pesquisa'
+                    } as NotFoundProps
+                }
+            />
         );
     }
 

@@ -5,11 +5,11 @@ export type InputProps = {
     placeholder: string
 }
 
-export function Input({ ...data }: InputProps) {
+export function Input({ ...props }: InputProps) {
 
     return (
         <input 
-            onChange={e => data.handleChange(e.target.value)} 
+            onChange={e => props.handleChange(e.target.value)} 
             className='bg-gray-50 
                       ring-2 
                       ring-gray-50 
@@ -21,7 +21,7 @@ export function Input({ ...data }: InputProps) {
                       focus:ring-green-500 
                       hover:shadow-inner' 
             type="text" 
-            placeholder={ data.placeholder } 
+            placeholder={ props.placeholder } 
         />
     );
 

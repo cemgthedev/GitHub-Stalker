@@ -13,7 +13,7 @@ export type CardProps = {
     following: number
 }
 
-export function Card({ ...data }: CardProps) {
+export function Card({ ...props }: CardProps) {
 
     return (
         <div 
@@ -45,10 +45,10 @@ export function Card({ ...data }: CardProps) {
                     className='w-[128px] 
                                h-[128px] 
                                rounded-full' 
-                    src={ data.avatar_url } 
+                    src={ props.avatar_url } 
                     alt="..."
                 />
-                <h1>{ data.name }</h1>
+                <h1>{ props.name }</h1>
             </div>
 
             <div 
@@ -75,7 +75,7 @@ export function Card({ ...data }: CardProps) {
                              transition 
                              hover:bg-opacity-80'
                 >
-                    { data.bio }
+                    { props.bio }
                 </h1>
             </div>
             <div 
@@ -110,7 +110,7 @@ export function Card({ ...data }: CardProps) {
                             className='text-base 
                                        font-medium'
                         >
-                            Dia { getDate(data.created_at) } às { getTime(data.created_at) } hr
+                            Dia { getDate(props.created_at) } às { getTime(props.created_at) } hr
                         </h1>
                     </figcaption>
                 </figure>
@@ -143,7 +143,7 @@ export function Card({ ...data }: CardProps) {
                             className='text-base 
                                        font-medium'
                         >
-                            Dia { getDate(data.updated_at) } às { getTime(data.updated_at) } hr
+                            Dia { getDate(props.updated_at) } às { getTime(props.updated_at) } hr
                         </h1>
                     </figcaption>
                 </figure>
@@ -174,7 +174,7 @@ export function Card({ ...data }: CardProps) {
                             justify-center 
                             rounded-full'
                     >
-                        { data.public_repos }
+                        { props.public_repos }
                     </div>
                     <figcaption>Repositórios Públicos</figcaption>
                 </figure>
@@ -198,7 +198,7 @@ export function Card({ ...data }: CardProps) {
                                    justify-center 
                                    rounded-full'
                     >
-                        { data.followers }
+                        { props.followers }
                     </div>
                     <figcaption>Seguidores</figcaption>
                 </figure>
@@ -222,7 +222,7 @@ export function Card({ ...data }: CardProps) {
                                    justify-center 
                                    rounded-full'
                     >
-                        { data.following }
+                        { props.following }
                     </div>
                     <figcaption>Seguindo</figcaption>
                 </figure>

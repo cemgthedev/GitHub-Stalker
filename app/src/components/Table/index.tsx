@@ -34,11 +34,11 @@ export type TableProps = {
     list: RepositoryProps[]
 }
 
-export function Table({ list }: TableProps) {
+export function Table({ ...props }: TableProps) {
     let [openPopUp, setOpenPopUp] = useState<number | undefined>();
 
     const setOfTechnologies = new Set<string>();
-    list.map(item => {
+    props.list.map(item => {
         setOfTechnologies.add(item.language);
     })
 
@@ -142,7 +142,7 @@ export function Table({ list }: TableProps) {
                                p-2'
                 >
                     {
-                        list.map((item) => (
+                        props.list.map((item) => (
                             <>
                                 <button 
                                     key={item.id} 
@@ -191,7 +191,7 @@ export function Table({ list }: TableProps) {
                                     </h1>
                                 </button>
                                 <PopUp 
-                                    data = {
+                                    {...
                                         {
                                             id : item.id,
                                             openPopUp: openPopUp,

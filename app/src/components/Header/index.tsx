@@ -8,7 +8,7 @@ export type HeaderProps = {
     twitter_username: string
 }
 
-export function Header({ ...data }: HeaderProps) {
+export function Header({ ...props }: HeaderProps) {
     
     return (
         <header 
@@ -36,15 +36,15 @@ export function Header({ ...data }: HeaderProps) {
                                hover:bg-red-500' 
                 >
                     <img src="/icons/MapPin.svg" alt="Cidade:" />
-                    <h2 className='text-sans text-xl text-white'>{ data.location }</h2>
+                    <h2 className='text-sans text-xl text-white'>{ props.location }</h2>
                 </a>
             }
             <div className='flex gap-2'>
                 {
-                    data.html_url != null &&
+                    props.html_url != null &&
                     <a 
                         title='pesquisar perfil no github' 
-                        href={data.html_url} 
+                        href={props.html_url} 
                         target='_blank'
                         className='bg-slate-900 
                                   rounded-md 
@@ -55,10 +55,10 @@ export function Header({ ...data }: HeaderProps) {
                     </a>
                 }
                 {
-                    data.email != null &&
+                    props.email != null &&
                     <a 
                         title='mandar um email'
-                        href={`mailto:${data.email}`} 
+                        href={`mailto:${props.email}`} 
                         className='bg-slate-900 
                                   rounded-md 
                                   transition 
@@ -68,10 +68,10 @@ export function Header({ ...data }: HeaderProps) {
                     </a>
                 }
                 {
-                    data.twitter_username != null &&
+                    props.twitter_username != null &&
                     <a 
                         title='pesquisar perfil no twitter'
-                        href={`https://twitter.com/${ data.twitter_username }`} 
+                        href={`https://twitter.com/${ props.twitter_username }`} 
                         target='_blank'
                         className='bg-slate-900 
                                   rounded-md 
@@ -85,7 +85,7 @@ export function Header({ ...data }: HeaderProps) {
             <div className='flex gap-2'>
                 <a 
                     title='voltar para a home'
-                    href={`/${ data.login }/stalking/${ data.login }`} 
+                    href={`/${ props.login }/stalking/${ props.login }`} 
                     className='bg-slate-900 
                               rounded-md 
                               transition 

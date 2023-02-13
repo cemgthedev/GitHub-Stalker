@@ -24,12 +24,12 @@ export type PopUpProps = {
     repository: RepositoryProps
 }
 
-export function PopUp({ ...data }: PopUpProps) {
+export function PopUp({ ...props }: PopUpProps) {
     
     return (
         <Dialog
-        open = {data.id == data.openPopUp}
-        onClose = {() => data.setOpenPopUp(null)}
+        open = {props.id == props.openPopUp}
+        onClose = {() => props.setOpenPopUp(null)}
         className='bg-white 
                     fixed 
                     inset-0 
@@ -67,12 +67,12 @@ export function PopUp({ ...data }: PopUpProps) {
                             rounded-full 
                             w-[32px] 
                             h-[32px]' 
-                    onClick={() => data.setOpenPopUp(null)}
+                    onClick={() => props.setOpenPopUp(null)}
                 >
                     X
                 </button>
                 <a 
-                    href={data.repository.html_url} 
+                    href={props.repository.html_url} 
                     target='_blank' 
                     className='flex 
                                 items-center 
@@ -85,7 +85,7 @@ export function PopUp({ ...data }: PopUpProps) {
                                 hover:text-green-500'
                 >
                     <img src="/icons/Link.svg" alt=""/>
-                    <h1>{ data.repository.name }</h1>
+                    <h1>{ props.repository.name }</h1>
                 </a>
                 <div 
                     className='flex 
@@ -93,7 +93,7 @@ export function PopUp({ ...data }: PopUpProps) {
                                 gap-2'
                 >
                     <img src="/icons/BracketsCurly.svg" alt=""/>
-                    <h1>{ data.repository.language }</h1>
+                    <h1>{ props.repository.language }</h1>
                 </div>
                 <div 
                     className='flex 
@@ -116,7 +116,7 @@ export function PopUp({ ...data }: PopUpProps) {
                                     transition 
                                     hover:bg-opacity-80'
                     >
-                        { data.repository.description }
+                        { props.repository.description }
                     </h1>
                 </div>
                 <div 
@@ -151,7 +151,7 @@ export function PopUp({ ...data }: PopUpProps) {
                                 className='text-base 
                                             font-medium'
                             >
-                                Dia { getDate(data.repository.created_at) } às { getTime(data.repository.created_at) } hr
+                                Dia { getDate(props.repository.created_at) } às { getTime(props.repository.created_at) } hr
                             </h1>
                         </figcaption>
                     </figure>
@@ -174,7 +174,7 @@ export function PopUp({ ...data }: PopUpProps) {
                         />
                         <figcaption className='flex flex-col gap-1 text-center'>
                             <h1>Última Atualização do Repositório</h1>
-                            <h1 className='text-base font-medium'>Dia {getDate(data.repository.updated_at)} às {getTime(data.repository.updated_at)} hr</h1>
+                            <h1 className='text-base font-medium'>Dia {getDate(props.repository.updated_at)} às {getTime(props.repository.updated_at)} hr</h1>
                         </figcaption>
                     </figure>
                 </div>
@@ -202,7 +202,7 @@ export function PopUp({ ...data }: PopUpProps) {
                                         justify-center 
                                         rounded-full'
                         >
-                            { data.repository.stargazers_count }
+                            { props.repository.stargazers_count }
                         </div>
                         <figcaption>Estrelas</figcaption>
                     </figure>
@@ -226,7 +226,7 @@ export function PopUp({ ...data }: PopUpProps) {
                                         justify-center 
                                         rounded-full'
                         >
-                            { data.repository.watchers_count }
+                            { props.repository.watchers_count }
                         </div>
                         <figcaption>Visualizações</figcaption>
                     </figure>
@@ -250,7 +250,7 @@ export function PopUp({ ...data }: PopUpProps) {
                                         justify-center 
                                         rounded-full'
                         >
-                            { data.repository.forks_count }
+                            { props.repository.forks_count }
                         </div>
                         <figcaption>Forks</figcaption>
                     </figure>

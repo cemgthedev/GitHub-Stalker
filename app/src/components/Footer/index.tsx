@@ -1,6 +1,15 @@
 import '../../styles/global.css';
 
-export function Footer() {
+export type FooterProps = {
+    hrefInstagram: string,
+    hrefLinkedin: string,
+    hrefEmail: string,
+    projectName: string,
+    licenceLabel: string,
+    hrefLicence: string
+}
+
+export function Footer({ ...props }: FooterProps) {
 
     return (
         <footer 
@@ -30,7 +39,7 @@ export function Footer() {
                         className='rounded-md 
                                    transition 
                                    hover:bg-green-500' 
-                        href="https://www.instagram.com/_carlos_eduardo_mg/" 
+                        href={ props.hrefInstagram }
                         target='_blank'>
                         <img src="/icons/InstagramLogo.svg" alt="" />
                     </a>
@@ -38,7 +47,7 @@ export function Footer() {
                         className='rounded-md 
                                    transition 
                                    hover:bg-green-500' 
-                        href="https://www.linkedin.com/in/carlos-eduardo-moura-gomes-bb0ab7250/" 
+                        href={ props.hrefLinkedin }
                         target='_blank'>
                         <img src="/icons/LinkedinLogo.svg" alt="" />
                     </a>
@@ -46,21 +55,21 @@ export function Footer() {
                         className='rounded-md 
                                    transition 
                                    hover:bg-green-500' 
-                        href="mailto:cemg.the.dev@gmail.com">
+                        href={ props.hrefEmail }>
                         <img src="/icons/Envelope.svg" alt="" />
                     </a>
                 </div>
                 <hr className='w-1/2 h-2'/>
             </div>
-            <h1 className='text-2xl font-bold'>GitHub Stalker</h1>
+            <h1 className='text-2xl font-bold'>{ props.projectName }</h1>
             <a
                 className='transition 
                          hover:text-green-500 
                          font-semibold' 
-                href="https://github.com/cemgthedev/GitHub-Stalker/blob/main/LICENSE" 
+                href={ props.hrefLicence } 
                 target='_blank'
             >
-                Copyright (c) 2023 Carlos Eduardo de Moura Gomes
+                { props.licenceLabel }
             </a>
         </footer>
     );

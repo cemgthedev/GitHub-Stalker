@@ -11,7 +11,7 @@ export type ListProps = {
     list: UsersProps[]
 }
 
-export function List({ ...data }: ListProps) {
+export function List({ ...props }: ListProps) {
     return (
         <div 
             className='bg-slate-900 
@@ -41,10 +41,10 @@ export function List({ ...data }: ListProps) {
                           scrollbar-hide'
             >
                 {
-                    data.list.map(item => (
+                    props.list.map(item => (
                             <form 
                                 key={item.id} 
-                                action={`/${data.login}/stalking/${item.login}`} 
+                                action={`/${props.login}/stalking/${item.login}`} 
                                 method="get"
                             >
                                 <button 
