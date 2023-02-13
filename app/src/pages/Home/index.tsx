@@ -16,7 +16,7 @@ type UserProps = HeaderProps & CardProps;
 
 export function Home() {
     const {userNameHome, userNameResearched} = useParams<string>();
-    const [user, setUser] = useState<UserProps | undefined>({} as UserProps);
+    const [user, setUser] = useState<UserProps | null>(null);
     const [repos, setRepos] = useState<RepositoryProps[]>([] as RepositoryProps[]);
     const [followers, setFollowers] = useState([]);
 
@@ -26,6 +26,7 @@ export function Home() {
                 const url = `https://api.github.com/users/${userNameResearched}`;
                 const responseGetUser = await axios.get(url);
                 const userData = responseGetUser.data;
+
                 setUser({
                     login: userData.login,
                     location: userData.location,
@@ -48,17 +49,16 @@ export function Home() {
 
                 const responseGetFollowers = await axios.get(userData.followers_url);
                 const dataFollowers = responseGetFollowers.data;
-                console.log(dataFollowers);
                 setFollowers(dataFollowers);
             } catch(error) {
-                console.log(error);
+                setUser(null);
             }
         }
 
         getUser();
     }, []);
     
-    if(user != undefined) {
+    if(user != null) {
         return (
             <div 
                 className='flex 
@@ -158,5 +158,4 @@ export function Home() {
             />
         );
     }
-
 }

@@ -7,7 +7,7 @@ import { Button, ButtonProps } from '../../components/Button'
 
 export function Search() {
 
-    const [userName, setUserName] = useState<string>('nome');
+    const [userName, setUserName] = useState<string | undefined>();
     
     return (
         <div 
@@ -61,18 +61,20 @@ export function Search() {
                 </h2>
                 <div className='flex gap-2'>
                     <Input  
-                        data = {
+                        {...
                             {
-                                handleChange: (e:string) => setUserName(e),
+                                handleChange: setUserName,
                                 placeholder: 'digite o nome de usuário'
                             } as InputProps
                         }
                     />
-                    <Button data = {
-                        {
-                            name: 'buscar'
-                        } as ButtonProps
-                    }/>
+                    <Button
+                        {...
+                            {
+                                name: 'buscar'
+                            } as ButtonProps
+                        }
+                    />
                 </div>
             </form>
         </div>

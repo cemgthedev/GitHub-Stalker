@@ -37,10 +37,12 @@ export type TableProps = {
 export function Table({ ...props }: TableProps) {
     let [openPopUp, setOpenPopUp] = useState<number | undefined>();
 
-    const setOfTechnologies = new Set<string>();
+    const setOfTechnologies = new Set<string | null>();
     props.list.map(item => {
         setOfTechnologies.add(item.language);
     })
+
+    setOfTechnologies.delete(null);
 
     return (
         <div 
@@ -143,9 +145,10 @@ export function Table({ ...props }: TableProps) {
                 >
                     {
                         props.list.map((item) => (
-                            <>
-                                <button 
-                                    key={item.id} 
+                            <div 
+                                key={ item.id }
+                            >
+                                <button
                                     onClick={() => setOpenPopUp(item.id)} 
                                     className='select-none 
                                                cursor-pointer 
@@ -157,7 +160,8 @@ export function Table({ ...props }: TableProps) {
                                                transition 
                                                hover:bg-green-500 
                                                hover:shadow-md 
-                                               hover:shadow-gray-900'
+                                               hover:shadow-gray-900
+                                               w-full'
                                 >
                                     <h1 
                                         className='w-1/3 
@@ -200,7 +204,7 @@ export function Table({ ...props }: TableProps) {
                                         } as PopUpProps
                                     }
                                 />
-                            </>
+                            </div>
                         ))
                     }
                 </div>

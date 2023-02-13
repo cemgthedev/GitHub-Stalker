@@ -29,7 +29,7 @@ export function PopUp({ ...props }: PopUpProps) {
     return (
         <Dialog
         open = {props.id == props.openPopUp}
-        onClose = {() => props.setOpenPopUp(null)}
+        onClose = {() => props.setOpenPopUp(undefined)}
         className='bg-white 
                     fixed 
                     inset-0 
