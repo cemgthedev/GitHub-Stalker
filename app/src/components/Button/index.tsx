@@ -10,6 +10,7 @@ export function Button({ ...props }: ButtonProps) {
         <button 
             className='bg-green-700 
                        ring-2 
+                       text-white
                        ring-green-700 
                        font-semibold 
                        flex items-center 

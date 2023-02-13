@@ -16,7 +16,7 @@ export function Footer({ ...props }: FooterProps) {
             className='bg-slate-900 
                      text-white 
                      w-screen 
-                     h-[25vh] 
+                     h-fit 
                      flex 
                      flex-col 
                      gap-4 
