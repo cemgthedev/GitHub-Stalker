@@ -12,10 +12,11 @@ export const Primary = () =>
     <List 
         {...
             {
+               login: 'cemgthedev',
                list: [
                 {
+                    login: 'cemgthedev',
                     avatar_url: 'https://avatars.githubusercontent.com/u/113810798?v=4',
-                    login: 'cemgthedev'
                 }
                ]
             } as ListProps

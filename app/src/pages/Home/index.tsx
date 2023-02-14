@@ -64,7 +64,8 @@ export function Home() {
                 className='flex 
                            flex-col 
                            items-center 
-                           gap-4'
+                           gap-4
+                           bg-white'
             >
                 <Header 
                     {...
@@ -151,7 +152,7 @@ export function Home() {
             <NotFound
                 {...
                     {
-                        message: 'Usuário não encontrado',
+                        message: `${userNameHome} e ${userNameResearched}`, //'Usuário não encontrado',
                         textButton: 'Voltar a página de pesquisa'
                     } as NotFoundProps
                 }
