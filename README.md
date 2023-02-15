@@ -8,19 +8,22 @@ Aplicação em desenvolvimento...
 Esta aplicação é um Design System desenvolvido do Figma ao React cujo objetivo é "stalkear"
 outros usuários do GitHub.
 
-### Aprendizados
-- Componentização
+## Aprendizados
+- Planejamento de Design System no Figma
+- Componentização no Figma e no React
 - Documentação com StoryBook
-- Hooks: useState e useEffect
-- React Router DOM
-- Consumo de API com Axios
 - Estilização com Tailwindcss
+- Hooks: useState, useEffect, useParams
+- React Router DOM
+- Consumo de APIs com Axios
+- Migração de projetos de JavaScript para TypeScript
+- Princípios SOLID
 
 ## Aplicação feita utilizando:
 - Node
 - React
 - Tailwindcss
-- JavaScript
+- TypeScript
 - StoryBook
 - Axios
 
@@ -28,3 +31,8 @@ outros usuários do GitHub.
 - cd app
 - npm i
 - npm run dev
+
+## Executando Storybook
+- cd app
+- npm i
+- npm run storybook
