@@ -6,7 +6,7 @@ import { Home } from './pages/Home'
 export function App() {
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path='/GitHub-Stalker/' element={<Search/>}/>
         <Route path='/GitHub-Stalker/:userNameHome/stalking/:userNameResearched' element={<Home/>} />
