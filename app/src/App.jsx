@@ -8,7 +8,7 @@ export function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/GitHub-Stalker/' element={<Search/>}/>
+        <Route path='/' element={<Search/>}/>
         <Route path='/:userNameHome/stalking/:userNameResearched' element={<Home/>} />
       </Routes>
     </Router>
