@@ -8,8 +8,8 @@ export function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route path='/GitHub-Stalker/' element={<Search/>}/>
-        <Route path='/GitHub-Stalker/:userNameHome/stalking/:userNameResearched' element={<Home/>} />
+        <Route path='/' element={<Search/>}/>
+        <Route path='/:userNameHome/stalking/:userNameResearched' element={<Home/>} />
       </Routes>
     </Router>
   )
