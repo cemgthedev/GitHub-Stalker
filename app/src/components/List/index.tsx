@@ -44,7 +44,7 @@ export function List({ ...props }: ListProps) {
                     props.list.map(item => (
                             <form 
                                 key={item.id} 
-                                action={`/GitHub-Stalker/${props.login}/stalking/${item.login}`} 
+                                action={`/${props.login}/stalking/${item.login}`} 
                                 method="get"
                             >
                                 <button 

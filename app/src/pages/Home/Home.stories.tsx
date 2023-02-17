@@ -13,7 +13,7 @@ export const Primary = () =>
         <Routes>
             <Route
                 element={<Home/>}
-                path='/GitHub-Stalker/:userNameHome/stalking/:userNameResearched'
+                path='/:userNameHome/stalking/:userNameResearched'
             />
         </Routes>
     </MemoryRouter>
