@@ -6,10 +6,11 @@ import { Home } from './pages/Home'
 export function App() {
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    // basename={process.env.PUBLIC_URL}
+    <Router>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/:userNameHome/stalking/:userNameResearched' element={<Home/>} />
+        <Route path='/GitHub-Stalker/' element={<Search/>}/>
+        <Route path='/GitHub-Stalker/:userNameHome/stalking/:userNameResearched' element={<Home/>} />
       </Routes>
     </Router>
   )

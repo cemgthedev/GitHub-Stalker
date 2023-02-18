@@ -43,7 +43,7 @@ export function NotFound({...props}:NotFoundProps) {
                 </figcaption>
             </figure>
             <a 
-                href='/'
+                href='/GitHub-Stalker/'
                 className='bg-gray-50 
                          text-gray-900 
                          text-center 
