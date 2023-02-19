@@ -61,6 +61,7 @@ export function Home() {
     if(user != null) {
         return (
             <div 
+                id='top'
                 className='flex 
                            flex-col 
                            items-center 
@@ -113,8 +114,8 @@ export function Home() {
                         }
                     />
                 </main>
-                <button 
-                    onClick={() => window.scrollTo(0, 0)} 
+                <a 
+                    href='#top' 
                     title='voltar para o topo da página' 
                     className="animate-bounce 
                                font-bold 
@@ -132,7 +133,7 @@ export function Home() {
                                rounded-full"
                 >
                     ^
-                </button>
+                </a>
                 <Footer
                     {...
                         {
