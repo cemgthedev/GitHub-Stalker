@@ -23,7 +23,7 @@ export function List({ ...props }: ListProps) {
                       gap-4 
                       w-[50vw] 
                       min-w-[300px] 
-                      p-8 
+                      p-4 
                       rounded-md'
         >
             <div className='flex items-center gap-2'>

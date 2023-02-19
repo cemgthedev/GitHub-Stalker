@@ -52,7 +52,7 @@ export function Table({ ...props }: TableProps) {
                       flex 
                       flex-col 
                       gap-4 
-                      p-8 
+                      p-4 
                       bg-slate-900 
                       w-[50vw] 
                       min-w-[300px] 

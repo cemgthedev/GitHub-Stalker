@@ -51,7 +51,7 @@ export function PopUp({ ...props }: PopUpProps) {
                             mt-8 
                             w-[50vw] 
                             min-w-[300px] 
-                            p-8 
+                            p-4 
                             rounded-md'
             >
                 <button 
@@ -62,8 +62,8 @@ export function PopUp({ ...props }: PopUpProps) {
                             items-center 
                             justify-center 
                             absolute 
-                            top-[-10px] 
-                            right-[-10px] 
+                            top-[-12px] 
+                            right-[-12px] 
                             rounded-full 
                             w-[32px] 
                             h-[32px]' 

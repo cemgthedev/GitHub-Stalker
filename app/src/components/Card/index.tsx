@@ -26,7 +26,7 @@ export function Card({ ...props }: CardProps) {
                        flex 
                        flex-col 
                        gap-4  
-                       p-8 
+                       p-4 
                        rounded-md'
         >
             <div 

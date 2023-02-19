@@ -19,7 +19,7 @@ export function Search() {
                     items-center 
                     w-fit 
                     h-fit 
-                    p-4 
+                    p-2 
                     rounded-md 
                     m-auto 
                     mt-16'
