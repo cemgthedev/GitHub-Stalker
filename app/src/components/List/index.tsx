@@ -15,20 +15,24 @@ export function List({ ...props }: ListProps) {
     return (
         <div 
             className='bg-slate-900 
-                      text-xl 
+                      text-base 
                       font-semibold 
                       text-white 
                       flex 
                       flex-col 
                       gap-4 
-                      w-[55vw] 
-                      min-w-[300px] 
+                      w-[50vw] 
+                      min-w-[320px] 
                       p-4 
                       rounded-md'
         >
             <div className='flex items-center gap-2'>
                 <img src="/icons/UsersThree.svg" alt=""/>
-                <h1>Seguidores</h1>
+                <h1
+                    className='text-xl'
+                >
+                    Seguidores
+                </h1>
             </div>
             <div 
                 id='list' 
@@ -64,8 +68,8 @@ export function List({ ...props }: ListProps) {
                                     <img 
                                         src={item.avatar_url} 
                                         alt="..."
-                                        className='w-[128px] 
-                                                   h-[128px] 
+                                        className='w-28 
+                                                   h-28
                                                    rounded-full'  
                                     />
                                     <h1 

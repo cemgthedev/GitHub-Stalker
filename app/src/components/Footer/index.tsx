@@ -61,7 +61,7 @@ export function Footer({ ...props }: FooterProps) {
                 </div>
                 <hr className='w-1/2 h-2'/>
             </div>
-            <h1 className='text-2xl font-bold'>{ props.projectName }</h1>
+            <h1 className='text-xl font-bold'>{ props.projectName }</h1>
             <a
                 className='transition 
                          hover:text-green-500 

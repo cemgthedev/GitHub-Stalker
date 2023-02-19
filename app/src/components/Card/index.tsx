@@ -18,11 +18,10 @@ export function Card({ ...props }: CardProps) {
     return (
         <div 
             className='bg-slate-900
-                     text-white
-                       text-xl 
+                     text-white 
                        font-semibold
-                       w-[55vw] 
-                       min-w-[300px]
+                       w-[50vw] 
+                       min-w-[320px]
                        flex 
                        flex-col 
                        gap-4  
@@ -42,8 +41,8 @@ export function Card({ ...props }: CardProps) {
                          hover:text-sky-500'
             >
                 <img 
-                    className='w-[128px] 
-                               h-[128px] 
+                    className='w-28 
+                               h-28
                                rounded-full' 
                     src={ props.avatar_url } 
                     alt="..."
@@ -62,7 +61,11 @@ export function Card({ ...props }: CardProps) {
                                 gap-2'
                 >
                     <img src="/icons/Fingerprint.svg" alt=""/>
-                    <h1>Bio</h1>
+                    <h1
+                        className='text-xl'
+                    >
+                        Bio
+                    </h1>
                 </div>
                 <h1 
                     className='min-h-[48px] 
@@ -88,8 +91,8 @@ export function Card({ ...props }: CardProps) {
                                items-center'
                 >
                     <img 
-                        className='w-[128px] 
-                                   h-[128px] 
+                        className='w-20 
+                                   h-20 
                                    min-w-min 
                                    rounded-lg 
                                    transition 
@@ -121,8 +124,8 @@ export function Card({ ...props }: CardProps) {
                                items-center'
                 >
                     <img 
-                        className='w-[128px] 
-                                   h-[128px] 
+                        className='w-20 
+                                   h-20 
                                    min-w-min 
                                    rounded-lg 
                                    transition 
@@ -140,8 +143,7 @@ export function Card({ ...props }: CardProps) {
                     >
                         <h1>Última Atualização do Perfil</h1>
                         <h1 
-                            className='text-base 
-                                       font-medium'
+                            className='font-medium'
                         >
                             Dia { getDate(props.updated_at) } às { getTime(props.updated_at) } hr
                         </h1>
@@ -166,9 +168,9 @@ export function Card({ ...props }: CardProps) {
                         className='
                             bg-green-700 
                             animate-pulse 
-                            w-[128px] 
-                            h-[128px] 
-                            text-4xl 
+                            w-20 
+                            h-20 
+                            text-xl 
                             flex 
                             items-center 
                             justify-center 
@@ -190,9 +192,9 @@ export function Card({ ...props }: CardProps) {
                     <div 
                         className='bg-green-500 
                                    animate-pulse 
-                                   w-[128px] 
-                                   h-[128px] 
-                                   text-4xl 
+                                   w-20 
+                                   h-20 
+                                   text-xl 
                                    flex 
                                    items-center 
                                    justify-center 
@@ -214,9 +216,9 @@ export function Card({ ...props }: CardProps) {
                     <div 
                         className='bg-green-300 
                                    animate-pulse 
-                                   w-[128px] 
-                                   h-[128px] 
-                                   text-4xl 
+                                   w-20 
+                                   h-20 
+                                   text-xl 
                                    flex 
                                    items-center 
                                    justify-center 

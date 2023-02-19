@@ -46,16 +46,15 @@ export function Table({ ...props }: TableProps) {
 
     return (
         <div 
-            className='text-xl 
-                      font-semibold 
+            className='font-semibold 
                     text-white 
                       flex 
                       flex-col 
                       gap-4 
                       p-4 
                       bg-slate-900 
-                      w-[55vw] 
-                      min-w-[300px] 
+                      w-[50vw] 
+                      min-w-[320px] 
                       rounded-md'
         >
             <div 
@@ -64,7 +63,11 @@ export function Table({ ...props }: TableProps) {
                           gap-2'
             >
                 <img src="/icons/BracketsCurly.svg" alt=""/>
-                <h1>Tecnologias</h1>
+                <h1
+                    className='text-xl'
+                >
+                    Tecnologias
+                </h1>
             </div>
             <div 
                 className='flex 
@@ -94,7 +97,11 @@ export function Table({ ...props }: TableProps) {
                             gap-2'
             >
                 <img src="/icons/Folders.svg" alt=""/>
-                <h1>Repositórios</h1>
+                <h1
+                    className='text-xl'
+                >
+                    Repositórios
+                </h1>
             </div>
             <div 
                 className='bg-gray-50 
@@ -103,7 +110,6 @@ export function Table({ ...props }: TableProps) {
                         flex 
                         flex-col 
                         gap-2 
-                        p-2 
                         rounded-md'
             >
                 <div className='select-none 
@@ -165,7 +171,6 @@ export function Table({ ...props }: TableProps) {
                                 >
                                     <h1 
                                         className='w-1/3 
-                                                   text-lg 
                                                    font-medium 
                                                    p-1'
                                     >
@@ -173,7 +178,6 @@ export function Table({ ...props }: TableProps) {
                                     </h1>
                                     <h1 
                                         className='w-1/3 
-                                                   text-base 
                                                    font-medium 
                                                    flex 
                                                    justify-center 
@@ -184,7 +188,6 @@ export function Table({ ...props }: TableProps) {
                                     </h1>
                                     <h1 
                                         className='w-1/3 
-                                                   text-base 
                                                    font-medium 
                                                    flex 
                                                    justify-center 
