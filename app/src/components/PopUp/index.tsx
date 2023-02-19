@@ -40,7 +40,6 @@ export function PopUp({ ...props }: PopUpProps) {
         >
             <Dialog.Panel 
                 className='relative 
-                            text-xl 
                             font-semibold 
                             text-white 
                             bg-slate-900 
@@ -109,7 +108,6 @@ export function PopUp({ ...props }: PopUpProps) {
                         className='min-h-[48px] 
                                 bg-gray-50 
                                     text-gray-900 
-                                    text-base 
                                     font-medium 
                                     p-2 
                                     rounded-md 
@@ -131,8 +129,8 @@ export function PopUp({ ...props }: PopUpProps) {
                         <img 
                             src="/icons/CalendarPlus.svg" 
                             alt="..."
-                            className='w-[128px] 
-                                        h-[128px] 
+                            className='w-20 
+                                        h-20
                                         min-w-min 
                                         rounded-lg 
                                         transition 
@@ -148,8 +146,7 @@ export function PopUp({ ...props }: PopUpProps) {
                         >
                             <h1>Criação do Repositório</h1>
                             <h1 
-                                className='text-base 
-                                            font-medium'
+                                className='text-base font-medium'
                             >
                                 Dia { getDate(props.repository.created_at) } às { getTime(props.repository.created_at) } hr
                             </h1>
@@ -163,8 +160,8 @@ export function PopUp({ ...props }: PopUpProps) {
                         <img 
                             src="/icons/CalendarCheck.svg" 
                             alt="..."
-                            className='w-[128px] 
-                                        h-[128px] 
+                            className='w-20 
+                                        h-20 
                                         min-w-min 
                                         rounded-lg 
                                         transition 
@@ -194,9 +191,8 @@ export function PopUp({ ...props }: PopUpProps) {
                         <div 
                             className='bg-green-700 
                                         animate-pulse 
-                                        w-[128px] 
-                                        h-[128px] 
-                                        text-4xl 
+                                        w-20 
+                                        h-20
                                         flex 
                                         items-center 
                                         justify-center 
@@ -218,9 +214,8 @@ export function PopUp({ ...props }: PopUpProps) {
                         <div 
                             className='bg-green-500 
                                         animate-pulse 
-                                        w-[128px] 
-                                        h-[128px] 
-                                        text-4xl 
+                                        w-20
+                                        h-20
                                         flex 
                                         items-center 
                                         justify-center 
@@ -242,9 +237,8 @@ export function PopUp({ ...props }: PopUpProps) {
                         <div 
                             className='bg-green-300 
                                         animate-pulse 
-                                        w-[128px] 
-                                        h-[128px] 
-                                        text-4xl 
+                                        w-20
+                                        h-20
                                         flex 
                                         items-center 
                                         justify-center 
