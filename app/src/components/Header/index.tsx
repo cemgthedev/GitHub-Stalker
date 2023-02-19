@@ -85,7 +85,7 @@ export function Header({ ...props }: HeaderProps) {
             <div className='flex gap-2'>
                 <a 
                     title='voltar para a home'
-                    href={`/GitHub-Stalker/${ props.login }/stalking/${ props.login }`} 
+                    href={`/${ props.login }/stalking/${ props.login }`} 
                     className='bg-slate-900 
                               rounded-md 
                               transition 
@@ -95,7 +95,7 @@ export function Header({ ...props }: HeaderProps) {
                 </a>
                 <a 
                     title='voltar para a página de pesquisa' 
-                    href='/GitHub-Stalker/'
+                    href='/'
                     className='bg-slate-900 
                               rounded-md 
                               transition 

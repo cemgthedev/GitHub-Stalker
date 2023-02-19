@@ -51,7 +51,7 @@ export function Search() {
                     pulando de alegria pra estalkear
                 </figcaption>
             </figure>
-            <form action={`/GitHub-Stalker/${userName}/stalking/${userName}`} method="get">
+            <form action={`/${userName}/stalking/${userName}`} method="get">
                 <h2 
                     className='text-xl 
                                font-sans 
