@@ -21,7 +21,7 @@ export function Card({ ...props }: CardProps) {
                      text-white
                        text-xl 
                        font-semibold
-                       w-[50vw] 
+                       w-[55vw] 
                        min-w-[300px]
                        flex 
                        flex-col 

@@ -21,7 +21,7 @@ export function List({ ...props }: ListProps) {
                       flex 
                       flex-col 
                       gap-4 
-                      w-[50vw] 
+                      w-[55vw] 
                       min-w-[300px] 
                       p-4 
                       rounded-md'

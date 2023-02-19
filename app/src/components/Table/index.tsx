@@ -54,7 +54,7 @@ export function Table({ ...props }: TableProps) {
                       gap-4 
                       p-4 
                       bg-slate-900 
-                      w-[50vw] 
+                      w-[55vw] 
                       min-w-[300px] 
                       rounded-md'
         >
@@ -103,7 +103,7 @@ export function Table({ ...props }: TableProps) {
                         flex 
                         flex-col 
                         gap-2 
-                        p-4 
+                        p-2 
                         rounded-md'
             >
                 <div className='select-none 
