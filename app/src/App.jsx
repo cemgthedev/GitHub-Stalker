@@ -7,7 +7,7 @@ export function App() {
 
   return (
     // basename={process.env.PUBLIC_URL}
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path='/' element={<Search/>}/>
         <Route path='/:userNameHome/stalking/:userNameResearched' element={<Home/>} />
