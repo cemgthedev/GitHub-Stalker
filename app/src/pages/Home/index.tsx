@@ -6,56 +6,52 @@ import { RepositoryProps } from '../../components/PopUp';
 import { Header, HeaderProps } from '../../components/Header';
 import { Card, CardProps } from '../../components/Card';
 import { Table, TableProps } from '../../components/Table';
-import { List, ListProps } from '../../components/List';
+import { List, ListProps, ListUsersProps } from '../../components/List';
 import { Footer, FooterProps } from '../../components/Footer'
 import { NotFound, NotFoundProps } from '../NotFound';
 
 import '../../styles/global.css';
 
-type UserProps = HeaderProps & CardProps;
+type UserProps = { repos_url: string, followers_url: string } & HeaderProps & CardProps | null;
 
 export function Home() {
     const {userNameHome, userNameResearched} = useParams<string>();
-    const [user, setUser] = useState<UserProps | null>(null);
+    const [user, setUser] = useState<UserProps>(null);
     const [repos, setRepos] = useState<RepositoryProps[]>([] as RepositoryProps[]);
-    const [followers, setFollowers] = useState([]);
+    const [followers, setFollowers] = useState([] as ListUsersProps[]);
+    
+    type TypePromise = UserProps | RepositoryProps[] | ListUsersProps[];
 
     useEffect(() => {
-        async function getUser() {
-            try {
-                const url = `https://api.github.com/users/${userNameResearched}`;
-                const responseGetUser = await axios.get(url);
-                const userData = responseGetUser.data;
+        function getData(url: string):Promise<TypePromise> {
 
-                setUser({
-                    login: userData.login,
-                    location: userData.location,
-                    html_url: userData.html_url,
-                    email: userData.email,
-                    twitter_username: userData.twitter_username,
-                    name: userData.name,
-                    bio: userData.bio,
-                    avatar_url: userData.avatar_url,
-                    created_at: userData.created_at,
-                    updated_at: userData.updated_at,
-                    public_repos: userData.public_repos,
-                    followers: userData.followers,
-                    following: userData.following
-                } as UserProps);
+            const promise:Promise<TypePromise> = new Promise(async (resolve, reject) => {
+                try {
+                    const response = await axios.get(url);
+                    const data = response.data;
+                
+                    resolve(data);
+                } catch(error) {
+                    reject(error);
+                }
+            });
 
-                const responseGetRepos = await axios.get(userData.repos_url);
-                const dataRepos = responseGetRepos.data;
-                setRepos(dataRepos);
+            return promise;
 
-                const responseGetFollowers = await axios.get(userData.followers_url);
-                const dataFollowers = responseGetFollowers.data;
-                setFollowers(dataFollowers);
-            } catch(error) {
-                setUser(null);
-            }
         }
+        
+        const url: string = `https://api.github.com/users/${userNameResearched}`;
+        
+        (getData(url) as Promise<UserProps>).then(user => {
+            setUser(user); 
+            if(user){
+                return Promise.all([
+                    (getData(user.repos_url) as Promise<RepositoryProps[]>).then(repos => setRepos(repos)),
+                    (getData(user.followers_url) as Promise<ListUsersProps[]>).then(followers => setFollowers(followers))
+                ]);
+            }
+        }).catch(error => console.error(error));
 
-        getUser();
     }, []);
     
     if(user != null) {
@@ -153,7 +149,7 @@ export function Home() {
             <NotFound
                 {...
                     {
-                        message: `${userNameHome} e ${userNameResearched}`, //'Usuário não encontrado',
+                        message: `Usuário não encontrado`,
                         textButton: 'Voltar a página de pesquisa'
                     } as NotFoundProps
                 }

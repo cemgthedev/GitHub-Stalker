@@ -1,6 +1,6 @@
 import '../../styles/global.css'
 
-export type UsersProps = {
+export type ListUsersProps = {
     id: number,
     login: string,
     avatar_url: string
@@ -8,7 +8,7 @@ export type UsersProps = {
 
 export type ListProps = {
     login: string,
-    list: UsersProps[]
+    list: ListUsersProps[]
 }
 
 export function List({ ...props }: ListProps) {
