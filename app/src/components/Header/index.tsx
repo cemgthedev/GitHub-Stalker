@@ -21,10 +21,10 @@ export function Header({ ...props }: HeaderProps) {
                      p-4'
         >
             {
-                location != null &&
+                props.location != null &&
                 <a 
                     title='pesquisar localização no google maps'
-                    href={`https://www.google.com.br/maps/search/${ location }`} 
+                    href={`https://www.google.com.br/maps/search/${ props.location }`} 
                     target='_blank' 
                     className='bg-slate-900 
                                flex 
