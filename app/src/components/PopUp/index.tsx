@@ -64,8 +64,8 @@ export function PopUp({ ...props }: PopUpProps) {
                             top-[-12px] 
                             right-[-12px] 
                             rounded-full 
-                            w-[32px] 
-                            h-[32px]' 
+                            w-[28px] 
+                            h-[28px]' 
                     onClick={() => props.setOpenPopUp(null)}
                 >
                     X
