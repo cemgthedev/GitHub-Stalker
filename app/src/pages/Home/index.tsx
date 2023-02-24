@@ -125,8 +125,10 @@ export function Home() {
                                h-[32px] 
                                fixed 
                                top-4 
-                               right-4 
-                               rounded-full"
+                               right-2 
+                               rounded-full
+                               ring-2
+                               ring-white"
                 >
                     ^
                 </a>
