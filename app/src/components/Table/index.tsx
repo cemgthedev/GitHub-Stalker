@@ -115,7 +115,9 @@ export function Table({ ...props }: TableProps) {
                 <div className='select-none 
                                flex 
                                justify-between 
-                               p-2'
+                               p-2
+                               border-b-2
+                               border-b-slate-900'
                 >
                         <h1 
                             className='w-1/3 
@@ -146,7 +148,7 @@ export function Table({ ...props }: TableProps) {
                                scrollbar-hide 
                                flex 
                                flex-col 
-                               gap-4 
+                               gap-2 
                                p-2'
                 >
                     {
@@ -160,13 +162,10 @@ export function Table({ ...props }: TableProps) {
                                                cursor-pointer 
                                                flex 
                                                justify-between 
-                                               rounded-md 
                                                ring-1 
                                                ring-gray-900 
                                                transition 
                                                hover:bg-green-500 
-                                               hover:shadow-md 
-                                               hover:shadow-gray-900
                                                w-full'
                                 >
                                     <h1 
