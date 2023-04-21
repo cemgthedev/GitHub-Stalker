@@ -135,7 +135,7 @@ export function Home() {
                 <Footer
                     {...
                         {
-                            hrefInstagram: "https://www.instagram.com/_carlos_eduardo_mg/",
+                            hrefInstagram: "https://www.instagram.com/cemg.the.dev/",
                             hrefLinkedin: "https://www.linkedin.com/in/carlos-eduardo-moura-gomes-bb0ab7250/",
                             hrefEmail: "mailto:cemg.the.dev@gmail.com",
                             projectName: 'GitHub Stalker',
