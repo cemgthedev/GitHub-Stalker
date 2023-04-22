@@ -1,6 +1,6 @@
 # GitHub-Stalker
 Uma aplicação web para você "stalkear" usuários do github. 
-[Ir para o site](https://github-stalker-gray.vercel.app/)
+[Ir para o site](https://bit.ly/github-stalker)
 
 ## Status
 Aplicação em desenvolvimento...
