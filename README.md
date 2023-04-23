@@ -18,7 +18,7 @@ outros usuários do GitHub.
 - React Router DOM
 - Consumo de APIs com Axios
 - Migração de projetos de JavaScript para TypeScript
-- Princípios SOLID
+- Deploy com Vercel
 
 ## Aplicação feita utilizando:
 - Node
@@ -37,3 +37,6 @@ outros usuários do GitHub.
 - cd app
 - npm i
 - npm run storybook
+
+
+
