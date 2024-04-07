@@ -1,3 +1,4 @@
+"use client"
 import { getUser } from "@/services/users";
 import { UserProps } from "@/types/models";
 import { createContext, useContext, useState } from "react";
