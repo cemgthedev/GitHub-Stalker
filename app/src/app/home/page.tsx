@@ -1,10 +1,7 @@
-"use client"
-import { useUserContext } from "@/contexts/user";
+import { HomePage } from "@/ui/HomePage";
 
 export default function Home() {
-  const { user } = useUserContext();
-
   return (
-      <h1>{JSON.stringify(user?.login)}</h1>
+    <HomePage />
   );
 }
