@@ -1,6 +1,6 @@
 "use client"
 import Home from "@/app/home/page";
-import Search from "@/app/search";
+import Search from "@/app/search/page";
 import { useUserContext } from "@/contexts/user";
 
 export function AppRoutes() {
