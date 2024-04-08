@@ -36,7 +36,7 @@ export function SearchPage() {
         <Card className="p-0 gap-0 items-center bg-transparent">
           <Card.Header className="pt-8">
             <Image 
-                src="/assets/images/GitHubLogo.svg"
+                src="/assets/images/GithubLogo.svg"
                 alt="..."
                 width={112}
                 height={112}
