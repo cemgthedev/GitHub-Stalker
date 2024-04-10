@@ -22,7 +22,7 @@ const NavbarVariants = tv({
             },
             'dark': {
                 navbarStyle: 'bg-zinc-950 text-slate-50',
-                navbarMenuItemStyle: 'hover:text-slate-50 hover:bg-zinc-700'
+                navbarMenuItemStyle: 'hover:bg-slate-50 hover:text-zinc-950'
             }
         },
         reponsive: {
@@ -111,3 +111,4 @@ Navbar.ResponsiveMenuItem = function NavbarResponsiveMenuItem({children, reponsi
 }
 
 export { Navbar };
+

@@ -14,6 +14,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontSize: {
+        '6xl': '40px',
+        '5xl': '36px',
+        '4xl': '32px',
+        '3xl': '28px',
+        '2xl': '24px',
+        'xl': '20px',
+        'lg': '16px',
+        'md': '12px',
+        'sm': '8px'
+      },
       keyframes: {
         'toast': {
           from: {
