@@ -1,4 +1,24 @@
-import { Folders, House, MagnifyingGlass, SmileySad, TextIndent, TextOutdent, UserList, UsersThree } from "@phosphor-icons/react";
+import {
+    At,
+    BracketsCurly,
+    CalendarCheck,
+    CalendarPlus,
+    EnvelopeSimple,
+    Fingerprint,
+    Folders,
+    GithubLogo,
+    House,
+    InstagramLogo,
+    LinkedinLogo,
+    MagnifyingGlass,
+    MapPin,
+    SmileySad,
+    TextIndent,
+    TextOutdent,
+    TwitterLogo,
+    UserList,
+    UsersThree
+} from "@phosphor-icons/react";
 
 type IconProps = {
     fill?: string
@@ -37,4 +57,48 @@ export function FollowersIcon({ fill, color, size, className }: IconProps) {
 
 export function StalkedIcon({ fill, color, size, className }: IconProps) {
     return <UserList fill={fill} color={color} size={size} className={className}/>
+}
+
+export function MapIcon({ fill, color, size, className }: IconProps) {
+    return <MapPin fill={fill} color={color} size={size} className={className}/>
+}
+
+export function CreatedAtIcon({ fill, color, size, className }: IconProps) {
+    return <CalendarPlus fill={fill} color={color} size={size} className={className}/>
+}
+
+export function UpdatedAtIcon({ fill, color, size, className }: IconProps) {
+    return <CalendarCheck fill={fill} color={color} size={size} className={className}/>
+}
+
+export function StackIcon({ fill, color, size, className }: IconProps) {
+    return <BracketsCurly fill={fill} color={color} size={size} className={className}/>
+}
+
+export function SocialMidiaIcon({ fill, color, size, className }: IconProps) {
+    return <At fill={fill} color={color} size={size} className={className}/>
+}
+
+export function GithubIcon({ fill, color, size, className }: IconProps) {
+    return <GithubLogo fill={fill} color={color} size={size} className={className}/>
+}
+
+export function TwitterIcon({ fill, color, size, className }: IconProps) {
+    return <TwitterLogo fill={fill} color={color} size={size} className={className}/>
+}
+
+export function EmailIcon({ fill, color, size, className }: IconProps) {
+    return <EnvelopeSimple fill={fill} color={color} size={size} className={className}/>
+}
+
+export function BioIcon({ fill, color, size, className }: IconProps) {
+    return <Fingerprint fill={fill} color={color} size={size} className={className}/>
+}
+
+export function InstagramIcon({ fill, color, size, className }: IconProps) {
+    return <InstagramLogo fill={fill} color={color} size={size} className={className}/>
+}
+
+export function LinkedinIcon({ fill, color, size, className }: IconProps) {
+    return <LinkedinLogo fill={fill} color={color} size={size} className={className}/>
 }

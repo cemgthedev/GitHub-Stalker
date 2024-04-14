@@ -51,7 +51,7 @@ export function SearchPage() {
           <Label size="sm" className="text-white">Nome de Usuário</Label>
           <div className="flex gap-3">
             <Input className=" hover:border-emerald-500 focus:border-emerald-400" placeholder="Digite o nome de usuário" onChange={e => onChangeUserName(e.target.value)} />
-            <Button style='success' className="w-fit" onClick={handleSearchUser}>
+            <Button style='success' className="w-fit" disabled={userNotFound} onClick={handleSearchUser}>
               <SearchIcon size={28} fill="white"/>
               Pesquisar
             </Button>

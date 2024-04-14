@@ -31,13 +31,20 @@ const config: Config = {
             width: '0px',
             opacity: '0'
           },
+        },
+        'dropdown': {
+          from: {
+            opacity: '0',
+            transform: 'translateY(-16px)'
+          }
         }
       },
       animation: {
-        'toast': 'toast 350ms linear'
+        'toast': 'toast 350ms linear',
+        'dropdown': 'dropdown 150ms ease-in'
       }
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };
 export default config;
