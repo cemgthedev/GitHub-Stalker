@@ -8,7 +8,7 @@ const NavbarVariants = tv({
         navbarMenuStyle: 'flex',
         navbarMenuItemStyle: 'cursor-pointer duration-150 ease-linear',
         navbarResponsiveMenuStyle: 'flex gap-2 justify-center items-center',
-        navbarResponsiveMenuItemStyle: 'ml-auto w-fit h-fit cursor-pointer md:hidden'
+        navbarResponsiveMenuItemStyle: 'ml-auto w-fit h-fit cursor-pointer lg:hidden'
     },
     variants: {
         style: {
@@ -20,6 +20,10 @@ const NavbarVariants = tv({
                 navbarStyle: 'bg-violet-500 text-slate-50',
                 navbarMenuItemStyle: 'hover:text-slate-50 hover:bg-violet-400'
             },
+            'light': {
+                navbarStyle: 'bg-slate-50 text-zinc-950',
+                navbarMenuItemStyle: 'text-zinc-950 hover:bg-zinc-950 hover:text-slate-50'
+            },
             'dark': {
                 navbarStyle: 'bg-zinc-950 text-slate-50',
                 navbarMenuItemStyle: 'hover:bg-slate-50 hover:text-zinc-950'
@@ -27,7 +31,7 @@ const NavbarVariants = tv({
         },
         reponsive: {
             true: {
-                navbarMenuStyle: 'max-md:hidden'
+                navbarMenuStyle: 'max-lg:hidden'
             }
         }
     }
