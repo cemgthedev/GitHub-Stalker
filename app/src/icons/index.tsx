@@ -3,8 +3,10 @@ import {
     BracketsCurly,
     CalendarCheck,
     CalendarPlus,
+    CircleNotch,
     EnvelopeSimple,
     Fingerprint,
+    FolderSimpleDashed,
     Folders,
     GithubLogo,
     House,
@@ -101,4 +103,12 @@ export function InstagramIcon({ fill, color, size, className }: IconProps) {
 
 export function LinkedinIcon({ fill, color, size, className }: IconProps) {
     return <LinkedinLogo fill={fill} color={color} size={size} className={className}/>
+}
+
+export function LoadingIcon({ fill, color, size, className }: IconProps) {
+    return <CircleNotch fill={fill} color={color} size={size} className={className}/>
+}
+
+export function RepositoriesNotFoundIcon({ fill, color, size, className }: IconProps) {
+    return <FolderSimpleDashed fill={fill} color={color} size={size} className={className}/>
 }
