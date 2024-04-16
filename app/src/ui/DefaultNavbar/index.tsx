@@ -72,7 +72,7 @@ export function DefaultNavbar() {
           }
           {
             openResponsiveMenu &&
-            <div className="bg-slate-50 absolute top-16 right-16 p-4 list-none rounded-lg animate-dropdown">
+            <div className="bg-slate-50 border-2 border-zinc-400 absolute top-16 right-16 p-4 list-none rounded-lg animate-dropdown">
               <Navbar.MenuItem style='light' className="rounded-[4px] p-2 group">
                 <Button className="p-0 font-semibold justify-start" onClick={() => router.push('/') }>
                   <HomeIcon fill="#09090b" size={28} className="group-hover:fill-slate-50 duration-150"/>

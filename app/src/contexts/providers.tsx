@@ -1,4 +1,5 @@
 import { UserProvider } from "@/contexts/user"
+import { FiltersProvider } from "./filters"
 
 export type ProvidersProps = {
     children: React.ReactNode
@@ -6,8 +7,10 @@ export type ProvidersProps = {
 
 export function Providers({ children }: ProvidersProps) {
     return (
-        <UserProvider>
-            {children}
-        </UserProvider>
+        <FiltersProvider>
+            <UserProvider>
+                {children}
+            </UserProvider>
+        </FiltersProvider>
     )
 }

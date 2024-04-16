@@ -4,7 +4,7 @@ import { VariantProps, tv } from "tailwind-variants";
 
 const NavbarVariants = tv({
     slots: {
-        navbarStyle: 'bg-slate-50 w-full h-fit flex justify-between items-center p-4 gap-2',
+        navbarStyle: 'bg-slate-50 w-full h-fit flex justify-between items-center p-4 gap-2 z-[999]',
         navbarMenuStyle: 'flex',
         navbarMenuItemStyle: 'cursor-pointer duration-150 ease-linear',
         navbarResponsiveMenuStyle: 'flex gap-2 justify-center items-center',
