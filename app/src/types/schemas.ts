@@ -18,7 +18,8 @@ export const UserSchema = z.object({
     bio: z.string().nullable(),
 })
 
-export const RepositoriesSchema = z.array(z.object({
+export const RepositorieSchema = z.object({
+    id: z.number(),
     name: z.string(),
     html_url: z.string(),
     created_at: z.string().datetime(),
@@ -28,7 +29,10 @@ export const RepositoriesSchema = z.array(z.object({
     size: z.number(),
     forks_count: z.number(),
     language: z.string().nullable(),
-}))
+    description: z.string().nullable(),
+})
+
+export const RepositoriesSchema = z.array(RepositorieSchema)
 
 export const FollowersSchema = z.array(z.object({
     avatar_url: z.string(),
