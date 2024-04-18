@@ -1,4 +1,5 @@
 import {
+    Article,
     At,
     BracketsCurly,
     CalendarCheck,
@@ -11,6 +12,7 @@ import {
     GithubLogo,
     House,
     InstagramLogo,
+    Link,
     LinkedinLogo,
     MagnifyingGlass,
     MapPin,
@@ -19,7 +21,8 @@ import {
     TextOutdent,
     TwitterLogo,
     UserList,
-    UsersThree
+    UsersThree,
+    XCircle
 } from "@phosphor-icons/react";
 
 type IconProps = {
@@ -111,4 +114,16 @@ export function LoadingIcon({ fill, color, size, className }: IconProps) {
 
 export function RepositoriesNotFoundIcon({ fill, color, size, className }: IconProps) {
     return <FolderSimpleDashed fill={fill} color={color} size={size} className={className}/>
+}
+
+export function ClosePopUpIcon({ fill, color, size, className }: IconProps) {
+    return <XCircle fill={fill} color={color} size={size} className={className}/>
+}
+
+export function LinkIcon({ fill, color, size, className }: IconProps) {
+    return <Link fill={fill} color={color} size={size} className={className}/>
+}
+
+export function DescriptionIcon({ fill, color, size, className }: IconProps) {
+    return <Article fill={fill} color={color} size={size} className={className}/>
 }

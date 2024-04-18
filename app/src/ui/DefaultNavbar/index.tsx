@@ -13,7 +13,7 @@ export function DefaultNavbar() {
   const {setUser} = useUserContext();
   const router = useRouter();
 
-  function handleSetUser() {
+  function handleCleanUser() {
     setUser(null);
   }
 
@@ -22,7 +22,7 @@ export function DefaultNavbar() {
   }
 
   return (
-    <Navbar className="sticky top-0 h-[10vh]" style='dark'>
+    <Navbar className="sticky top-0 h-[10vh] z-[99] border-b-2 border-b-white" style='dark'>
       <Heading>GitHub Stalker</Heading>
       <Navbar.Menu reponsive>
         <Navbar.MenuItem style='dark' className="rounded-[4px] p-2 group">
@@ -46,7 +46,7 @@ export function DefaultNavbar() {
         <Navbar.MenuItem style='dark' className="rounded-[4px] p-2 group">
           <Button 
             className="p-0 font-semibold" 
-            onClick={handleSetUser}
+            onClick={handleCleanUser}
           >
             <SearchIcon fill="white" size={28} className="group-hover:fill-zinc-950 duration-150"/>
             Pesquisar
@@ -74,19 +74,25 @@ export function DefaultNavbar() {
             openResponsiveMenu &&
             <div className="bg-slate-50 border-2 border-zinc-400 absolute top-16 right-16 p-4 list-none rounded-lg animate-dropdown">
               <Navbar.MenuItem style='light' className="rounded-[4px] p-2 group">
-                <Button className="p-0 font-semibold justify-start" onClick={() => router.push('/') }>
+                <Button 
+                  className="p-0 font-semibold justify-start" 
+                  onClick={() => {
+                    handleOpenResponsiveMenu()
+                    router.push('/')
+                  }}
+                >
                   <HomeIcon fill="#09090b" size={28} className="group-hover:fill-slate-50 duration-150"/>
                   Home
                 </Button>
               </Navbar.MenuItem>
               <Navbar.MenuItem style='light' className="rounded-[4px] p-2 group">
-                <Link href={'/repositories'} className="flex items-center justify-start gap-1 font-semibold">
+                <Link onClick={handleOpenResponsiveMenu} href={'/repositories'} className="flex items-center justify-start gap-1 font-semibold">
                   <RepositoriesIcon fill="#09090b" size={28} className="group-hover:fill-slate-50 duration-150"/>
                   Repositórios
                 </Link>
               </Navbar.MenuItem>
               <Navbar.MenuItem style='light' className="rounded-[4px] p-2 group">
-                <Link href={'/followers'} className="flex items-center justify-start gap-1 font-semibold" >
+                <Link onClick={handleOpenResponsiveMenu} href={'/followers'} className="flex items-center justify-start gap-1 font-semibold" >
                   <FollowersIcon fill="#09090b" size={28} className="group-hover:fill-slate-50 duration-150"/>
                   Seguidores
                 </Link>
@@ -94,14 +100,14 @@ export function DefaultNavbar() {
               <Navbar.MenuItem style='light' className="rounded-[4px] p-2 group">
                 <Button 
                   className="p-0 font-semibold justify-start" 
-                  onClick={handleSetUser}
+                  onClick={handleCleanUser}
                 >
                   <SearchIcon fill="#09090b" size={28} className="group-hover:fill-slate-50 duration-150"/>
                   Pesquisar
                 </Button>
               </Navbar.MenuItem>
               <Navbar.MenuItem style='light' className="rounded-[4px] p-2 group">
-                <Link href={'/stalkeados'} className="flex items-center justify-start gap-1 font-semibold" >
+                <Link onClick={handleOpenResponsiveMenu} href={'/stalkeados'} className="flex items-center justify-start gap-1 font-semibold" >
                   <StalkedIcon fill="#09090b" size={28} className="group-hover:fill-slate-50 duration-150"/>
                   Stalkeados
                 </Link>
