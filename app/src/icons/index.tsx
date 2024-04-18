@@ -20,6 +20,7 @@ import {
     TextIndent,
     TextOutdent,
     TwitterLogo,
+    UserCircleDashed,
     UserList,
     UsersThree,
     XCircle
@@ -114,6 +115,10 @@ export function LoadingIcon({ fill, color, size, className }: IconProps) {
 
 export function RepositoriesNotFoundIcon({ fill, color, size, className }: IconProps) {
     return <FolderSimpleDashed fill={fill} color={color} size={size} className={className}/>
+}
+
+export function FollowersNotFoundIcon({ fill, color, size, className }: IconProps) {
+    return <UserCircleDashed fill={fill} color={color} size={size} className={className}/>
 }
 
 export function ClosePopUpIcon({ fill, color, size, className }: IconProps) {

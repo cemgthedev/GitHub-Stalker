@@ -3,7 +3,8 @@ import { getFollowers } from "@/services/followers";
 import { getRepositories } from "@/services/repositories";
 import { getUser } from "@/services/users";
 import { FollowersProps, RepositoriesProps, UserProps } from "@/types/models";
-import { createContext, useContext, useState } from "react";
+import { useRouter } from "next/navigation";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export type UserContextProps = {
     user: UserProps | null
@@ -31,6 +32,11 @@ export function UserProvider({children}: UserProviderProps) {
     const [userNotFound, setUserNotFound] = useState<boolean>(false);
     const [repositories, setRepositories] = useState<RepositoriesProps>([]);
     const [followers, setFollowers] = useState<FollowersProps>([]);
+    const router = useRouter();
+
+    useEffect(() => {
+        router.push("/");
+    }, [user])
 
     async function searchUser(username: string) {
         setLoading(true);
