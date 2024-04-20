@@ -53,7 +53,7 @@ export function DefaultNavbar() {
           </Button>
         </Navbar.MenuItem>
         <Navbar.MenuItem style='dark' className="rounded-[4px] p-2 group">
-          <Link href={'/stalkeados'} className="flex items-center gap-1 font-semibold" >
+          <Link href={'/stalking'} className="flex items-center gap-1 font-semibold" >
             <StalkedIcon fill="white" size={28} className="group-hover:fill-zinc-950 duration-150"/>
             Stalkeados
           </Link>
@@ -107,7 +107,7 @@ export function DefaultNavbar() {
                 </Button>
               </Navbar.MenuItem>
               <Navbar.MenuItem style='light' className="rounded-[4px] p-2 group">
-                <Link onClick={handleOpenResponsiveMenu} href={'/stalkeados'} className="flex items-center justify-start gap-1 font-semibold" >
+                <Link onClick={handleOpenResponsiveMenu} href={'/stalking'} className="flex items-center justify-start gap-1 font-semibold" >
                   <StalkedIcon fill="#09090b" size={28} className="group-hover:fill-slate-50 duration-150"/>
                   Stalkeados
                 </Link>

@@ -34,8 +34,10 @@ export const RepositorieSchema = z.object({
 
 export const RepositoriesSchema = z.array(RepositorieSchema)
 
-export const FollowersSchema = z.array(z.object({
+export const FollowerSchema = z.object({
     avatar_url: z.string(),
     html_url: z.string(),
     login: z.string()
-}))
+})
+
+export const FollowersSchema = z.array(FollowerSchema)

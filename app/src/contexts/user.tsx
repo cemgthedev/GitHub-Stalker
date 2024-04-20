@@ -2,7 +2,7 @@
 import { getFollowers } from "@/services/followers";
 import { getRepositories } from "@/services/repositories";
 import { getUser } from "@/services/users";
-import { FollowersProps, RepositoriesProps, UserProps } from "@/types/models";
+import { FollowerProps, FollowersProps, RepositoriesProps, UserProps } from "@/types/models";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -18,6 +18,9 @@ export type UserContextProps = {
     setRepositories(repositories: RepositoriesProps): void
     followers: FollowersProps
     setFollowers(followers: FollowersProps): void
+    stalking: FollowersProps
+    setStalking(stalking: FollowersProps): void
+    updateStalkingLocalStorage(stalking: FollowersProps): void
 }
 
 export const UserContext = createContext({} as UserContextProps);
@@ -32,17 +35,49 @@ export function UserProvider({children}: UserProviderProps) {
     const [userNotFound, setUserNotFound] = useState<boolean>(false);
     const [repositories, setRepositories] = useState<RepositoriesProps>([]);
     const [followers, setFollowers] = useState<FollowersProps>([]);
+    const [stalking, setStalking] = useState<FollowersProps>([]);
     const router = useRouter();
 
     useEffect(() => {
         router.push("/");
     }, [user])
 
+    function addStalkedOnLocalStorage(stalked: FollowerProps) {
+        const stalkingLocalStorageJSON = localStorage.getItem("stalking");
+
+        let stalkingLocalStorage:FollowersProps = []
+
+        if(!stalkingLocalStorageJSON) {
+            stalkingLocalStorage = [stalked]
+            const initialStalkingLocalStorageJSON = JSON.stringify(stalkingLocalStorage)
+            localStorage.setItem("stalking", initialStalkingLocalStorageJSON)
+        } else {
+            stalkingLocalStorage = JSON.parse(stalkingLocalStorageJSON)
+            const isOnStalkingList = stalkingLocalStorage.some(item => item.login === stalked.login)
+            if(!isOnStalkingList) {
+                stalkingLocalStorage.push(stalked)
+                const newStalkingLocalStorageJSON = JSON.stringify(stalkingLocalStorage)
+                localStorage.setItem("stalking", newStalkingLocalStorageJSON)
+            }
+        }
+
+        setStalking(stalkingLocalStorage)
+    }
+
+    function updateStalkingLocalStorage(stalking: FollowersProps) {
+        localStorage.setItem("stalking", JSON.stringify(stalking))
+    }
+
     async function searchUser(username: string) {
         setLoading(true);
-        const response = await getUser(username);
-        if(response) {
-            setUser(response);
+        const responseUser = await getUser(username);
+        if(responseUser) {
+            
+            setUser(responseUser);
+
+            const {login, avatar_url, html_url}:FollowerProps = responseUser;
+            addStalkedOnLocalStorage({login, avatar_url, html_url});
+
             const [ responseRepositories, responseFollowers ] = await Promise.all([getRepositories(username), getFollowers(username)]);
             setRepositories(responseRepositories);
             setFollowers(responseFollowers);
@@ -66,7 +101,10 @@ export function UserProvider({children}: UserProviderProps) {
                 repositories,
                 setRepositories,
                 followers,
-                setFollowers
+                setFollowers,
+                stalking,
+                setStalking,
+                updateStalkingLocalStorage
             }}
         >
             {children}

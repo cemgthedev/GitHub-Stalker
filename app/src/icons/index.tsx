@@ -14,11 +14,13 @@ import {
     InstagramLogo,
     Link,
     LinkedinLogo,
+    ListMagnifyingGlass,
     MagnifyingGlass,
     MapPin,
     SmileySad,
     TextIndent,
     TextOutdent,
+    Trash,
     TwitterLogo,
     UserCircleDashed,
     UserList,
@@ -121,6 +123,10 @@ export function FollowersNotFoundIcon({ fill, color, size, className }: IconProp
     return <UserCircleDashed fill={fill} color={color} size={size} className={className}/>
 }
 
+export function StalkingNotFoundIcon({ fill, color, size, className }: IconProps) {
+    return <ListMagnifyingGlass fill={fill} color={color} size={size} className={className}/>
+}
+
 export function ClosePopUpIcon({ fill, color, size, className }: IconProps) {
     return <XCircle fill={fill} color={color} size={size} className={className}/>
 }
@@ -131,4 +137,8 @@ export function LinkIcon({ fill, color, size, className }: IconProps) {
 
 export function DescriptionIcon({ fill, color, size, className }: IconProps) {
     return <Article fill={fill} color={color} size={size} className={className}/>
+}
+
+export function RemoveIcon({ fill, color, size, className }: IconProps) {
+    return <Trash fill={fill} color={color} size={size} className={className}/>
 }

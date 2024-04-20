@@ -7,6 +7,8 @@ export type FiltersContextProps = {
     setQueryRepositories(queryRepositories: RepositoriesProps): void
     queryFollowers: FollowersProps
     setQueryFollowers(queryFollowers: FollowersProps): void
+    queryStalking: FollowersProps
+    setQueryStalking(queryFollowers: FollowersProps): void
     loading: boolean
     setLoading(loading: boolean): void
 }
@@ -20,6 +22,7 @@ export type FiltersProviderProps = {
 export function FiltersProvider({ children }: FiltersProviderProps) {
     const [queryRepositories, setQueryRepositories] = useState<RepositoriesProps>([]);
     const [queryFollowers, setQueryFollowers] = useState<FollowersProps>([]);
+    const [queryStalking, setQueryStalking] = useState<FollowersProps>([]);
     const [loading, setLoading] = useState<boolean>(false);
     
     return (
@@ -29,6 +32,8 @@ export function FiltersProvider({ children }: FiltersProviderProps) {
                 setQueryRepositories, 
                 queryFollowers,
                 setQueryFollowers,
+                queryStalking,
+                setQueryStalking,
                 loading, 
                 setLoading
             }}
