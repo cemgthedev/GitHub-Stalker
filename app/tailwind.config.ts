@@ -7,6 +7,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}"
   ],
+  darkMode:'class',
   theme: {
     extend: {
       backgroundImage: {
@@ -37,11 +38,25 @@ const config: Config = {
             opacity: '0',
             transform: 'translateY(-16px)'
           }
+        },
+        'light-icon': {
+          from: {
+            opacity: '0',
+            transform: 'translateX(15px)'
+          }
+        },
+        'dark-icon': {
+          from: {
+            opacity: '0',
+            transform: 'translateX(-15px)'
+          }
         }
       },
       animation: {
         'toast': 'toast 350ms linear',
-        'dropdown': 'dropdown 150ms ease-in'
+        'dropdown': 'dropdown 150ms ease-in',
+        'light-icon': 'light-icon 150ms ease-in',
+        'dark-icon': 'dark-icon 150ms ease-in'
       }
     },
   },

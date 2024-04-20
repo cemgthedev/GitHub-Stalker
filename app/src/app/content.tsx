@@ -9,10 +9,10 @@ export type ContentProps = {
 }
 
 export default function Content({ children, className }: ContentProps) {
-    const { user, loading } = useUserContext();
+    const { user, loading, darkTheme } = useUserContext();
 
     return(
-        <body className={twMerge(className, "overflow-y-hidden scrollbar-hide")}>
+        <body className={twMerge(className, "overflow-y-hidden scrollbar-hide dark:bg-zinc-950", darkTheme && 'dark')}>
             {
                 !!user && !loading && <DefaultNavbar />
             }

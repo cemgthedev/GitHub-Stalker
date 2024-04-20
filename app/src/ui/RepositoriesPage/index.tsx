@@ -39,9 +39,9 @@ export function RepositoriesPage() {
     }
 
     return (
-        <main className="flex pt-4 justify-center h-[90vh] overscroll-y-auto">
-            <div className="bg-zinc-950 flex flex-col p-8 gap-4 rounded-lg h-fit max-h-[85vh] w-1/2 max-lg:w-4/6 max-md:w-11/12">
-                <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400">
+        <main className="flex pt-4 justify-center h-[90vh] overscroll-y-auto dark:bg-zinc-950 duration-300">
+            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit max-h-[85vh] w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
+                <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400 dark:hover:border-zinc-950 dark:has-[:focus]:border-zinc-700 duration-150">
                     <SearchIcon size={28} fill="black"/>
                     <Input 
                         placeholder="Buscar repositório pelo nome" 
@@ -105,8 +105,8 @@ export function RepositoriesPage() {
             </div>
             {
                 selectedRepository && (
-                    <div className="flex justify-center items-center py-4 fixed inset-0 w-screen h-screen bg-white z-[999] max-lg:items-start overflow-y-auto scrollbar-hide">
-                        <div className="relative bg-zinc-950 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12">
+                    <div className="flex justify-center items-center py-4 fixed inset-0 w-screen h-screen bg-white dark:bg-zinc-950 z-[999] max-lg:items-start overflow-y-auto scrollbar-hide">
+                        <div className="relative bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12">
                             <Button className="w-fit absolute top-1 right-1 group" onClick={() => handleSelectedRepository(null)}>
                                 <ClosePopUpIcon fill="white" size={28} className="group-hover:fill-red-500"/>
                             </Button>

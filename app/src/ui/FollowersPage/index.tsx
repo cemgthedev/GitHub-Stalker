@@ -35,9 +35,9 @@ export function FollowersPage() {
     }
     
     return (
-        <main className="flex pt-4 justify-center h-[90vh]">
-            <div className="bg-zinc-950 flex flex-col p-8 gap-4 rounded-lg h-fit max-h-[85vh] w-1/2 max-lg:w-4/6 max-md:w-11/12">
-                <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400">
+        <main className="flex pt-4 justify-center h-[90vh] dark:bg-zinc-950 duration-300">
+            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit max-h-[85vh] w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
+                <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400 dark:hover:border-zinc-950 dark:has-[:focus]:border-zinc-800 duration-150">
                     <SearchIcon size={28} fill="black"/>
                     <Input 
                         placeholder="Buscar seguidor pelo nome de usuário" 
@@ -78,7 +78,7 @@ export function FollowersPage() {
                                                             <SearchIcon fill="white" size={24} className="w-[24px] h-[24px]"/>
                                                             <Label size="xs">Stalkear</Label>
                                                         </Button>
-                                                        <Link href={follower.html_url} target="_blank" className="w-full flex gap-2 justify-center items-center rounded-[4px] bg-indigo-500 hover:bg-indigo-400 duration-150" >
+                                                        <Link href={follower.html_url} target="_blank" className="w-full flex gap-2 justify-center items-center rounded-[4px] bg-indigo-500 hover:bg-indigo-400 dark:bg-cyan-500 dark:hover:bg-cyan-400 duration-150" >
                                                             <GithubIcon fill="white" size={24} className="w-[24px] h-[24px]"/>
                                                             <Label size="xs" className="text-slate-50">GitHub</Label>
                                                         </Link>
