@@ -23,8 +23,8 @@ export function HomePage() {
   }, [])
 
   return (
-      <main className="flex flex-col gap-8 pt-4 items-center h-[90vh] overflow-y-auto">
-        <div className="bg-zinc-950 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12">
+      <main className="flex flex-col gap-8 pt-4 items-center h-[90vh] overflow-y-auto dark:bg-zinc-950 duration-300">
+        <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
           <Card variant="horizontal" className="bg-transparent p-0 max-md:flex-col max-md:items-center w-full">
             <Card.Header>
               <Image
@@ -68,7 +68,7 @@ export function HomePage() {
             <div className="flex gap-1 flex-wrap">
               {
                 listLanguages?.map((language) => (
-                  <Badge key={language} style={'primary-outline'}>
+                  <Badge key={language} style={'primary-outline'} className="dark:bg-slate-50 dark:border-transparent dark:text-zinc-950 dark:hover:bg-slate-200 duration-150">
                     {language}
                   </Badge>
                 ))
@@ -81,20 +81,20 @@ export function HomePage() {
               <Label size="sm" className="text-slate-50">Redes Sociais</Label>
             </div>
             <div className="m-auto flex flex-col gap-1 items-center w-fit">
-              <Link href={user?.html_url || ""} target="_blank" className="w-full flex items-center py-1 px-2 gap-2 border-2 border-slate-50 rounded-[4px] hover:bg-indigo-500 hover:border-transparent duration-150">
+              <Link href={user?.html_url || ""} target="_blank" className="w-full flex items-center py-1 px-2 gap-2 border-2 border-slate-50 rounded-[4px] hover:bg-indigo-500 hover:border-transparent dark:hover:bg-cyan-400 duration-150">
                 <GithubIcon fill="white" size={28} className="min-w-[28px] min-h-[28px]"/>
                 <Label size="xs" className="text-slate-50">Visualizar GitHub</Label>
               </Link>
               {
                 user?.twitter_username &&
-                <Link href={`https://twitter.com/${ user.twitter_username }`} target="_blank" className="w-full flex items-center py-1 px-2 gap-2 border-2 border-slate-50 rounded-[4px] hover:bg-indigo-500 hover:border-transparent duration-150">
+                <Link href={`https://twitter.com/${ user.twitter_username }`} target="_blank" className="w-full flex items-center py-1 px-2 gap-2 border-2 border-slate-50 rounded-[4px] hover:bg-indigo-500 hover:border-transparent dark:hover:bg-cyan-400 duration-150">
                   <TwitterIcon fill="white" size={28} className="min-w-[28px] min-h-[28px]"/>
                   <Label size="xs" className="text-slate-50">Visualizar Twitter</Label>
                 </Link>
               }
               {
                 user?.email &&
-                <Link href={`mailto:${user.email}`} target="_blank" className="w-full flex items-center py-1 px-2 gap-2 border-2 border-slate-50 rounded-[4px] hover:bg-indigo-500 hover:border-transparent duration-150">
+                <Link href={`mailto:${user.email}`} target="_blank" className="w-full flex items-center py-1 px-2 gap-2 border-2 border-slate-50 rounded-[4px] hover:bg-indigo-500 hover:border-transparent dark:hover:bg-cyan-400 duration-150">
                   <EmailIcon fill="white" size={28} className="min-w-[28px] min-h-[28px]"/>
                   <Label size="xs" className="text-slate-50">Enviar Email</Label>
                 </Link>

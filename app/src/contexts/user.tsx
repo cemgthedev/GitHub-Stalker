@@ -20,7 +20,9 @@ export type UserContextProps = {
     setFollowers(followers: FollowersProps): void
     stalking: FollowersProps
     setStalking(stalking: FollowersProps): void
-    updateStalkingLocalStorage(stalking: FollowersProps): void
+    updateStalkingLocalStorage(stalking: FollowersProps): void,
+    darkTheme: boolean,
+    setDarkTheme(darkTheme: boolean): void
 }
 
 export const UserContext = createContext({} as UserContextProps);
@@ -36,6 +38,7 @@ export function UserProvider({children}: UserProviderProps) {
     const [repositories, setRepositories] = useState<RepositoriesProps>([]);
     const [followers, setFollowers] = useState<FollowersProps>([]);
     const [stalking, setStalking] = useState<FollowersProps>([]);
+    const [darkTheme, setDarkTheme] = useState<boolean>(false);
     const router = useRouter();
 
     useEffect(() => {
@@ -104,7 +107,9 @@ export function UserProvider({children}: UserProviderProps) {
                 setFollowers,
                 stalking,
                 setStalking,
-                updateStalkingLocalStorage
+                updateStalkingLocalStorage,
+                darkTheme,
+                setDarkTheme
             }}
         >
             {children}

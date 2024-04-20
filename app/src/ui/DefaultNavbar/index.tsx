@@ -3,14 +3,14 @@ import { Button } from "@/components/Button";
 import { Heading } from "@/components/Heading";
 import { Navbar } from "@/components/Navbar";
 import { useUserContext } from "@/contexts/user";
-import { CloseMenu, FollowersIcon, HomeIcon, OpenMenu, RepositoriesIcon, SearchIcon, StalkedIcon } from "@/icons";
+import { CloseMenu, DarkThemeIcon, FollowersIcon, HomeIcon, LightThemeIcon, OpenMenu, RepositoriesIcon, SearchIcon, StalkedIcon } from "@/icons";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
 
 export function DefaultNavbar() {
   const [openResponsiveMenu, setOpenResponsiveMenu] = useState(false);
-  const {setUser} = useUserContext();
+  const {setUser, darkTheme, setDarkTheme} = useUserContext();
   const router = useRouter();
 
   function handleCleanUser() {
@@ -21,8 +21,12 @@ export function DefaultNavbar() {
     setOpenResponsiveMenu(!openResponsiveMenu);
   }
 
+  function handleThemeDark() {
+    setDarkTheme(!darkTheme);
+  }
+
   return (
-    <Navbar className="sticky top-0 h-[10vh] z-[99] border-b-2 border-b-white" style='dark'>
+    <Navbar className="sticky top-0 h-[10vh] z-[99] border-b-2 border-b-white dark:bg-indigo-600" style='dark'>
       <Heading>GitHub Stalker</Heading>
       <Navbar.Menu reponsive>
         <Navbar.MenuItem style='dark' className="rounded-[4px] p-2 group">
@@ -60,6 +64,15 @@ export function DefaultNavbar() {
         </Navbar.MenuItem>
       </Navbar.Menu>
       <Navbar.ResponsiveMenu>
+        <Button style="primary" className="p-1 w-[72px] rounded-full border-2 border-slate-50" onClick={handleThemeDark}>
+          {
+            darkTheme ? (
+              <DarkThemeIcon fill="white" size={24} className="w-[24px] h-[24px] ml-auto animate-dark-icon"/>
+            ) : (
+              <LightThemeIcon fill="white" size={24} className="w-[24px] h-[24px] mr-auto animate-light-icon"/>
+            )
+          }
+        </Button>
         <Navbar.ResponsiveMenuItem>
           {
             openResponsiveMenu ?

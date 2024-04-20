@@ -17,7 +17,9 @@ import {
     ListMagnifyingGlass,
     MagnifyingGlass,
     MapPin,
+    Moon,
     SmileySad,
+    Sun,
     TextIndent,
     TextOutdent,
     Trash,
@@ -141,4 +143,12 @@ export function DescriptionIcon({ fill, color, size, className }: IconProps) {
 
 export function RemoveIcon({ fill, color, size, className }: IconProps) {
     return <Trash fill={fill} color={color} size={size} className={className}/>
+}
+
+export function LightThemeIcon({ fill, color, size, className }: IconProps) {
+    return <Sun fill={fill} color={color} size={size} className={className}/>
+}
+
+export function DarkThemeIcon({ fill, color, size, className }: IconProps) {
+    return <Moon fill={fill} color={color} size={size} className={className}/>
 }
