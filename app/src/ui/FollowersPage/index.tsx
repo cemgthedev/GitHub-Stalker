@@ -40,7 +40,7 @@ export function FollowersPage() {
                 <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400">
                     <SearchIcon size={28} fill="black"/>
                     <Input 
-                        placeholder="Buscar seguidor pelo nome" 
+                        placeholder="Buscar seguidor pelo nome de usuário" 
                         className="border-none"
                         onChange={(e) => searchFollowerName(e.target.value)}
                     />
@@ -100,8 +100,4 @@ export function FollowersPage() {
             </div>
         </main>
     );
-}
-
-function searchUser(username: any) {
-    throw new Error("Function not implemented.");
 }
