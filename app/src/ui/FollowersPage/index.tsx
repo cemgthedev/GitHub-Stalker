@@ -35,9 +35,9 @@ export function FollowersPage() {
     }
     
     return (
-        <main className="flex pt-4 justify-center h-[90vh] dark:bg-zinc-950 duration-300">
+        <main className="flex pt-4 justify-center h-screen dark:bg-zinc-950 duration-300">
             <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit max-h-[85vh] w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
-                <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400 dark:hover:border-zinc-950 dark:has-[:focus]:border-zinc-800 duration-150">
+                <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400 dark:hover:border-zinc-950 dark:has-[:focus]:border-zinc-700 duration-150">
                     <SearchIcon size={28} fill="black"/>
                     <Input 
                         placeholder="Buscar seguidor pelo nome de usuário" 

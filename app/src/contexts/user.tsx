@@ -42,6 +42,16 @@ export function UserProvider({children}: UserProviderProps) {
     const router = useRouter();
 
     useEffect(() => {
+        const usernameJSON = localStorage.getItem("username");
+        if(usernameJSON) {
+            searchUser(usernameJSON);
+        }
+    }, [])
+
+    useEffect(() => {
+        if(user) {
+            localStorage.setItem("username", user.login)
+        }
         router.push("/");
     }, [user])
 
