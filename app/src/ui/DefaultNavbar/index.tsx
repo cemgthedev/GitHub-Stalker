@@ -7,6 +7,7 @@ import { CloseMenu, DarkThemeIcon, FollowersIcon, HomeIcon, LightThemeIcon, Open
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 export function DefaultNavbar() {
   const [openResponsiveMenu, setOpenResponsiveMenu] = useState(false);
@@ -27,7 +28,7 @@ export function DefaultNavbar() {
 
   return (
     <Navbar className="sticky top-0 h-[10vh] z-[99] border-b-2 border-b-white dark:bg-indigo-600" style='dark'>
-      <Heading>GitHub Stalker</Heading>
+      <Heading className="max-md:text-2xl">GitHub Stalker</Heading>
       <Navbar.Menu reponsive>
         <Navbar.MenuItem style='dark' className="rounded-[4px] p-2 group">
           <Button className="p-0 font-semibold" onClick={() => router.push('/') }>
@@ -76,11 +77,11 @@ export function DefaultNavbar() {
         <Navbar.ResponsiveMenuItem>
           {
             openResponsiveMenu ?
-            <Button style={'transparent'} onClick={handleOpenResponsiveMenu} className="group">
-              <CloseMenu fill="white" size={28} className="relative group-hover:fill-zinc-950"/>
+            <Button onClick={handleOpenResponsiveMenu} className={twMerge("group hover:bg-slate-50", openResponsiveMenu && "bg-slate-50")}>
+              <CloseMenu fill="white" size={28} className={twMerge("relative group-hover:fill-zinc-950", openResponsiveMenu && "fill-zinc-950")}/>
             </Button>:
             <Button style={'transparent'} onClick={handleOpenResponsiveMenu} className="group">
-              <OpenMenu fill="white" size={28} className="relative group-hover:fill-zinc-950"/>
+              <OpenMenu fill="white" size={28} className={twMerge("relative group-hover:fill-zinc-950", openResponsiveMenu && "fill-zinc-950")}/>
             </Button>
           }
           {
