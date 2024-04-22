@@ -24,7 +24,9 @@ export function FollowersPage() {
             setQueryFollowers(followers.filter((follower) => follower.login.toLocaleLowerCase().includes(followerName.toLocaleLowerCase())));
         }
         setLoading(false);
-    }, [followerName])
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [followerName, followers])
 
     function searchFollowerName(name: string) {
         setFollowerName(name);

@@ -1,10 +1,10 @@
-"use client"
+'use client'
 import { getFollowers } from "@/services/followers";
 import { getRepositories } from "@/services/repositories";
 import { getUser } from "@/services/users";
 import { FollowerProps, FollowersProps, RepositoriesProps, UserProps } from "@/types/models";
 import { useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from 'react';
 
 export type UserContextProps = {
     user: UserProps | null
@@ -42,10 +42,15 @@ export function UserProvider({children}: UserProviderProps) {
     const router = useRouter();
 
     useEffect(() => {
-        const usernameJSON = localStorage.getItem("username");
-        if(usernameJSON) {
-            searchUser(usernameJSON);
+        async function loadUser() {
+            const usernameJSON = localStorage.getItem("username");
+            if(usernameJSON) {
+                await searchUser(usernameJSON);
+            }
         }
+
+        loadUser();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -53,6 +58,8 @@ export function UserProvider({children}: UserProviderProps) {
             localStorage.setItem("username", user.login)
         }
         router.push("/");
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     function addStalkedOnLocalStorage(stalked: FollowerProps) {

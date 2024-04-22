@@ -20,18 +20,18 @@ export function StalkingPage() {
 
     useEffect(() => {
         setLoading(true);
+
+        updateStalkingLocalStorage(stalking);
+
         if(stalkedName === "") {
             setQueryStalking(stalking);
         } else {
-            setQueryStalking(queryStalking.filter((stalked) => stalked.login.toLocaleLowerCase().includes(stalkedName.toLocaleLowerCase())));
+            setQueryStalking(stalking.filter((stalked) => stalked.login.toLocaleLowerCase().includes(stalkedName.toLocaleLowerCase())));
         }
         setLoading(false);
-    }, [stalkedName])
 
-    useEffect(() => {
-        updateStalkingLocalStorage(stalking);
-        setQueryStalking(stalking);
-    }, [stalking])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [stalkedName, stalking])
 
     function searchFollowerName(name: string) {
         setStalkedName(name);
