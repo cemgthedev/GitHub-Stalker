@@ -79,7 +79,7 @@ export function RepositoriesPage() {
                                         <tbody>
                                             {
                                                 queryRepositories.map((repository) => (
-                                                    <tr className="border-2 border-zinc-950 cursor-pointer hover:bg-cyan-500 hover:text-slate-50 duration-300" onClick={() => handleSelectedRepository(repository)}>
+                                                    <tr key={repository.id} className="border-2 border-zinc-950 cursor-pointer hover:bg-cyan-500 hover:text-slate-50 duration-300" onClick={() => handleSelectedRepository(repository)}>
                                                         <td>
                                                             <div className="flex justify-between p-4">
                                                                 <Text className="w-1/3 text-nowrap overflow-hidden text-ellipsis max-lg:w-[128px] max-md:w-[64px]">{repository.name}</Text>

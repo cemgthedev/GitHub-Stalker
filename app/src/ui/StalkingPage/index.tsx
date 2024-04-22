@@ -77,7 +77,7 @@ export function StalkingPage() {
                                 <div className="max-h-[65vh] pb-4 flex flex-wrap gap-4 overflow-y-auto scrollbar-hide">
                                     {
                                         queryStalking.map((stalked) => (
-                                            <Card variant="horizontal" className="relative gap-2 items-center w-full max-md:flex-col">
+                                            <Card key={stalked.login} variant="horizontal" className="relative gap-2 items-center w-full max-md:flex-col">
                                                 <Card.Header>
                                                     <Image
                                                         src={stalked.avatar_url}
