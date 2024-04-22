@@ -61,7 +61,7 @@ export function FollowersPage() {
                                 <div className="max-h-[65vh] pb-4 flex flex-wrap gap-4 overflow-y-auto scrollbar-hide">
                                     {
                                         queryFollowers.map((follower) => (
-                                            <Card variant="horizontal" className="gap-2 items-center w-full max-md:flex-col">
+                                            <Card key={follower.login} variant="horizontal" className="gap-2 items-center w-full max-md:flex-col">
                                                 <Card.Header>
                                                     <Image
                                                         src={follower.avatar_url}
