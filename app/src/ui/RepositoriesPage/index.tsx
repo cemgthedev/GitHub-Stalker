@@ -41,8 +41,8 @@ export function RepositoriesPage() {
     }
 
     return (
-        <main className="flex pt-4 justify-center h-screen overscroll-y-auto dark:bg-zinc-950 duration-300">
-            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit max-h-[85vh] w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
+        <main className="flex py-4 px-2 justify-center h-screen overscroll-y-auto dark:bg-zinc-950 duration-300">
+            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
                 <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400 dark:hover:border-zinc-950 dark:has-[:focus]:border-zinc-700 duration-150">
                     <SearchIcon size={28} fill="black"/>
                     <Input 
@@ -69,10 +69,10 @@ export function RepositoriesPage() {
                                         <thead className="sticky top-0 bg-slate-50 ring-2 ring-slate-50">
                                             <tr>
                                                 <th>
-                                                    <div className="flex justify-between p-4">
-                                                        <Label size="xs" className="w-1/3 text-left">Nome</Label>
-                                                        <Label size="xs" className="w-1/3">Data de Criação</Label>
-                                                        <Label size="xs" className="w-1/3">Data de Atualização</Label>
+                                                    <div className="flex justify-between p-4 gap-2">
+                                                        <Label size="xs" className="w-1/3 text-center max-lg:w-[128px] max-md:w-[64px] max-md:text-xs">Nome</Label>
+                                                        <Label size="xs" className="w-1/3 text-center max-md:text-xs">Data de Criação</Label>
+                                                        <Label size="xs" className="w-1/3 text-center max-md:text-xs">Data de Atualização</Label>
                                                     </div>
                                                 </th>
                                             </tr>
@@ -83,10 +83,10 @@ export function RepositoriesPage() {
                                                 queryRepositories.map((repository) => (
                                                     <tr key={repository.id} className="border-2 border-zinc-950 cursor-pointer hover:bg-cyan-500 hover:text-slate-50 duration-300" onClick={() => handleSelectedRepository(repository)}>
                                                         <td>
-                                                            <div className="flex justify-between p-4">
-                                                                <Text className="w-1/3 text-nowrap overflow-hidden text-ellipsis max-lg:w-[128px] max-md:w-[64px]">{repository.name}</Text>
-                                                                <Text className="text-center w-1/3">{getDate(repository.created_at)}</Text>
-                                                                <Text className="text-center w-1/3">{getDate(repository.updated_at)}</Text>
+                                                            <div className="flex justify-between p-4 gap-2">
+                                                                <Text className="text-center w-1/3 text-nowrap overflow-hidden text-ellipsis max-lg:w-[128px] max-md:w-[64px] max-md:text-xs">{repository.name}</Text>
+                                                                <Text className="text-center w-1/3 max-md:text-xs">{getDate(repository.created_at)}</Text>
+                                                                <Text className="text-center w-1/3 max-md:text-xs">{getDate(repository.updated_at)}</Text>
                                                             </div>
                                                         </td>
                                                     </tr>  

@@ -23,7 +23,7 @@ export function SearchPage() {
   }
 
   return (
-    <main className="flex flex-col justify-center items-center w-screen h-screen">
+    <main className="flex flex-col justify-center items-center py-4 px-2 w-screen h-screen">
       <div className="relative bg-zinc-950 flex flex-col items-center p-4 gap-4 rounded-lg h-fit w-fit">
         {
           userNotFound &&
