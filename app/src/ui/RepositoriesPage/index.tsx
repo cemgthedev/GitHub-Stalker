@@ -28,7 +28,9 @@ export function RepositoriesPage() {
             setQueryRepositories(repositories.filter((repository) => repository.name.toLocaleLowerCase().includes(repositoryName.toLocaleLowerCase())));
         }
         setLoading(false);
-    }, [repositoryName])
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [repositoryName, repositories])
 
     function searchRepositoryName(name: string) {
         setRepositoryName(name);

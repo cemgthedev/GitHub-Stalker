@@ -13,13 +13,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function HomePage() {
-  const { user, repositories, darkTheme } = useUserContext();
+  const { user, repositories } = useUserContext();
   const [listLanguages, setLanguages] = useState<string[]>();
 
   useEffect(() => {
     const list = getLenguages(repositories);
     setLanguages(list);
-  }, [])
+  }, [repositories])
 
   return (
       <main className="flex flex-col gap-8 pt-4 items-center h-screen overflow-y-auto dark:bg-zinc-950 duration-300">
@@ -37,7 +37,6 @@ export function HomePage() {
             <Card.Body className="justify-center">
               <Label className="text-slate-50 max-md:text-center">{user?.name}</Label>
               <Text className="text-slate-50 max-md:text-center">{user?.login}</Text>
-              <Text className="text-slate-50 max-md:text-center">{localStorage.getItem("darkTheme")}{JSON.stringify(darkTheme)}</Text>
             </Card.Body>
           </Card>
           <div className="flex justify-between">
