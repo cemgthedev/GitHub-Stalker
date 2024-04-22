@@ -11,10 +11,9 @@ import { getTime } from "@/utils/getTime";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { DefaultFooter } from "../DefaultFooter";
 
 export function HomePage() {
-  const { user, repositories } = useUserContext();
+  const { user, repositories, darkTheme } = useUserContext();
   const [listLanguages, setLanguages] = useState<string[]>();
 
   useEffect(() => {
@@ -23,7 +22,7 @@ export function HomePage() {
   }, [])
 
   return (
-      <main className="flex flex-col gap-8 pt-4 items-center h-[90vh] overflow-y-auto dark:bg-zinc-950 duration-300">
+      <main className="flex flex-col gap-8 pt-4 items-center h-screen overflow-y-auto dark:bg-zinc-950 duration-300">
         <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
           <Card variant="horizontal" className="bg-transparent p-0 max-md:flex-col max-md:items-center w-full">
             <Card.Header>
@@ -38,6 +37,7 @@ export function HomePage() {
             <Card.Body className="justify-center">
               <Label className="text-slate-50 max-md:text-center">{user?.name}</Label>
               <Text className="text-slate-50 max-md:text-center">{user?.login}</Text>
+              <Text className="text-slate-50 max-md:text-center">{localStorage.getItem("darkTheme")}{JSON.stringify(darkTheme)}</Text>
             </Card.Body>
           </Card>
           <div className="flex justify-between">
@@ -116,7 +116,6 @@ export function HomePage() {
             <Label size="xs" className="text-slate-50">Pesquisar {user?.location} no Google Maps</Label>
           </Link>
         </div>
-        <DefaultFooter />
       </main>
   );
 }
