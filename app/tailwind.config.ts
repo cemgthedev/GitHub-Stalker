@@ -39,24 +39,40 @@ const config: Config = {
             transform: 'translateY(-16px)'
           }
         },
+        'popup': {
+          from: {
+            opacity: '0',
+            transform: 'scale(0.5)'
+          }
+        },
+        'deleted-item': {
+          from: {
+            tramsform: 'scale(1)'
+          },
+          to: {
+            transform: 'scale(0)'
+          }
+        },
         'light-icon': {
           from: {
             opacity: '0',
-            transform: 'translateX(15px)'
+            transform: 'translateX(15px) scale(0.25)'
           }
         },
         'dark-icon': {
           from: {
             opacity: '0',
-            transform: 'translateX(-15px)'
+            transform: 'translateX(-15px) scale(0.25)'
           }
         }
       },
       animation: {
         'toast': 'toast 350ms linear',
         'dropdown': 'dropdown 150ms ease-in',
-        'light-icon': 'light-icon 150ms ease-in',
-        'dark-icon': 'dark-icon 150ms ease-in'
+        'popup': 'popup 150ms linear',
+        'light-icon': 'light-icon 300ms ease-in',
+        'dark-icon': 'dark-icon 300ms ease-in',
+        'deleted-item': 'deleted-item 450ms linear'
       }
     },
   },

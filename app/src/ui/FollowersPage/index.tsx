@@ -38,7 +38,7 @@ export function FollowersPage() {
     
     return (
         <main className="flex py-4 px-2 justify-center h-screen dark:bg-zinc-950 duration-300">
-            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
+            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 max-md:p-6 duration-300">
                 <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400 dark:hover:border-zinc-950 dark:has-[:focus]:border-zinc-700 duration-150">
                     <SearchIcon size={28} fill="black"/>
                     <Input 
@@ -60,7 +60,7 @@ export function FollowersPage() {
                             </div>
                         ) : (
                             queryFollowers.length > 0 ? (
-                                <div className="max-h-[65vh] pb-4 flex flex-wrap gap-4 overflow-y-auto scrollbar-hide">
+                                <div className="max-h-[67vh] pb-4 flex flex-wrap gap-4 overflow-y-auto scrollbar-hide">
                                     {
                                         queryFollowers.map((follower) => (
                                             <Card key={follower.login} variant="horizontal" className="gap-2 items-center w-full max-md:flex-col">

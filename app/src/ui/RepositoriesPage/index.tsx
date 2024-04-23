@@ -42,7 +42,7 @@ export function RepositoriesPage() {
 
     return (
         <main className="flex py-4 px-2 justify-center h-screen overscroll-y-auto dark:bg-zinc-950 duration-300">
-            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
+            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 max-md:p-6 duration-300">
                 <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400 dark:hover:border-zinc-950 dark:has-[:focus]:border-zinc-700 duration-150">
                     <SearchIcon size={28} fill="black"/>
                     <Input 
@@ -56,7 +56,7 @@ export function RepositoriesPage() {
                         <RepositoriesIcon fill="white" size={28} className="min-w-[28px] min-h-[28px]"/>
                         <Label size="sm" className="text-slate-50">Repositórios</Label>
                     </div>
-                    <div className="bg-slate-50 rounded-lg px-4 pb-4 max-h-[60vh] overflow-y-auto scrollbar-hide">
+                    <div className="bg-slate-50 rounded-lg px-4 pb-4 max-h-[67vh] overflow-y-auto scrollbar-hide">
                         {
                             loading ? (
                                 <div className="flex justify-center items-center gap-2 pt-4">
@@ -108,7 +108,7 @@ export function RepositoriesPage() {
             {
                 selectedRepository && (
                     <div className="flex justify-center items-center py-4 fixed inset-0 w-screen h-screen bg-white dark:bg-zinc-950 z-[999] max-lg:items-start overflow-y-auto scrollbar-hide">
-                        <div className="relative bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12">
+                        <div className="relative bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 max-md:p-6 animate-popup">
                             <Button className="w-fit absolute top-1 right-1 group" onClick={() => handleSelectedRepository(null)}>
                                 <ClosePopUpIcon fill="white" size={28} className="group-hover:fill-red-500"/>
                             </Button>
@@ -152,39 +152,39 @@ export function RepositoriesPage() {
                                     </div>
                                 )
                             }
-                            <div className="flex gap-8 justify-center items-center">
-                                <Card className="bg-transparent items-center p-0 gap-2">
+                            <div className="flex gap-4 justify-center items-center">
+                                <Card className="bg-transparent items-center p-0 gap-2 w-1/3">
                                     <Card.Header>
-                                        <div className="flex justify-center items-center bg-emerald-600 w-[64px] h-[64px] rounded-full">
-                                            <Heading size="xs" className="text-slate-50">{selectedRepository.watchers_count}</Heading>
+                                        <div className="flex justify-center items-center bg-emerald-500 w-[96px] h-[96px] max-md:w-[64px] max-md:h-[64px] rounded-full">
+                                            <Heading className="text-slate-50 max-md:text-2xl">{selectedRepository.watchers_count}</Heading>
                                         </div>
                                     </Card.Header>
                                     <Card.Body>
-                                        <Label size="xs" className="text-slate-50">Visualizações</Label>
+                                        <Label size="sm" className="text-slate-50 max-md:text-lg">Visualizações</Label>
                                     </Card.Body>
                                 </Card>
-                                <Card className="bg-transparent items-center p-0 gap-2">
+                                <Card className="bg-transparent items-center p-0 gap-2 w-1/3">
                                     <Card.Header>
-                                        <div className="flex justify-center items-center bg-emerald-400 w-[96px] h-[96px] rounded-full">
-                                            <Heading className="text-slate-50">{selectedRepository.stargazers_count}</Heading>
+                                        <div className="flex justify-center items-center bg-emerald-500 w-[96px] h-[96px] max-md:w-[64px] max-md:h-[64px] rounded-full">
+                                            <Heading className="text-slate-50 max-md:text-2xl">{selectedRepository.stargazers_count}</Heading>
                                         </div>
                                     </Card.Header>
                                     <Card.Body>
-                                        <Label size="sm" className="text-slate-50">Estrelas</Label>
+                                        <Label size="sm" className="text-slate-50 max-md:text-lg">Estrelas</Label>
                                     </Card.Body>
                                 </Card>
-                                <Card className="bg-transparent items-center p-0 gap-2">
+                                <Card className="bg-transparent items-center p-0 gap-2 w-1/3">
                                     <Card.Header>
-                                        <div className="flex justify-center items-center bg-emerald-600 w-[64px] h-[64px] rounded-full">
-                                            <Heading size="xs" className="text-slate-50">{selectedRepository.forks_count}</Heading>
+                                        <div className="flex justify-center items-center bg-emerald-500 w-[96px] h-[96px] max-md:w-[64px] max-md:h-[64px] rounded-full">
+                                            <Heading className="text-slate-50 max-md:text-2xl">{selectedRepository.forks_count}</Heading>
                                         </div>
                                     </Card.Header>
                                     <Card.Body>
-                                        <Label size="xs" className="text-slate-50">Forks</Label>
+                                        <Label size="sm" className="text-slate-50 max-md:text-lg">Forks</Label>
                                     </Card.Body>
                                 </Card>
                             </div>
-                            <Link href={selectedRepository.html_url} className="flex items-center gap-2 p-2 border-2 border-slate-50 rounded-[4px] hover:bg-indigo-500 hover:border-transparent duration-150">
+                            <Link href={selectedRepository.html_url} className="flex items-center gap-2 p-2 border-2 border-slate-50 rounded-[4px] hover:bg-indigo-500 hover:border-transparent dark:hover:bg-cyan-500 duration-150">
                                 <LinkIcon fill="white" size={28}/>
                                 <Label size="xs" className="text-slate-50">Visualizar repositório no GitHub</Label>
                             </Link>

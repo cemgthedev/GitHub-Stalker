@@ -23,8 +23,8 @@ export function SearchPage() {
   }
 
   return (
-    <main className="flex flex-col justify-center items-center py-4 px-2 w-screen h-screen">
-      <div className="relative bg-zinc-950 flex flex-col items-center p-4 gap-4 rounded-lg h-fit w-fit">
+    <main className="flex flex-col justify-center items-center p-6 w-screen h-screen">
+      <div className="relative bg-zinc-950 flex flex-col items-center p-8 gap-4 rounded-lg h-fit w-fit max-md:p-6">
         {
           userNotFound &&
           <div className="absolute -bottom-14 bg-zinc-950 flex p-2 gap-2 justify-center items-center w-full rounded-lg overflow-hidden animate-toast">
@@ -32,7 +32,7 @@ export function SearchPage() {
             <Text className="text-white whitespace-nowrap">usuário não encontrado</Text>
           </div>
         }
-        <Heading className="text-white">GitHub Stalker</Heading>
+        <Heading className="text-white text-center">GitHub Stalker</Heading>
         <Card className="p-0 gap-0 items-center bg-transparent">
           <Card.Header className="pt-8">
             <Image 
@@ -44,7 +44,7 @@ export function SearchPage() {
             />
           </Card.Header>
           <Card.Body className="border-t-2 border-white">
-            <Text className="text-white">pulando de alegria para stalkear</Text>
+            <Text className="text-white text-center">pulando de alegria para stalkear</Text>
           </Card.Body>
         </Card>
         <div className="flex flex-col gap-2">

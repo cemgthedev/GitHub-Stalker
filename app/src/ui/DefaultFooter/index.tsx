@@ -15,7 +15,7 @@ export function DefaultFooter() {
                     <Link href={"https://github.com/cemgthedev/GitHub-Stalker"} target="_blank" className="hover:bg-indigo-500 dark:hover:bg-cyan-400 p-1 rounded-[4px] duration-150">
                         <GithubIcon fill="white" size={28} className="min-w-[28px] min-h-[28px]"/>
                     </Link>
-                    <Link href={"https://www.instagram.com/cemg.the.dev/"} target="_blank" className="hover:bg-indigo-500 dark:hover:bg-cyan-400 p-1 rounded-[4px] duration-150">
+                    <Link href={"https://www.instagram.com/cemg.dev/"} target="_blank" className="hover:bg-indigo-500 dark:hover:bg-cyan-400 p-1 rounded-[4px] duration-150">
                         <InstagramIcon fill="white" size={28} className="min-w-[28px] min-h-[28px]"/>
                     </Link>
                     <Link href={"https://www.linkedin.com/in/carlos-eduardo-moura-gomes-bb0ab7250/"} target="_blank" className="hover:bg-indigo-500 dark:hover:bg-cyan-400 p-1 rounded-[4px] duration-150">

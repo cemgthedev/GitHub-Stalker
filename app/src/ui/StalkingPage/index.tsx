@@ -11,12 +11,14 @@ import { FollowerProps } from "@/types/models";
 import Image from 'next/image';
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 export function StalkingPage() {
     const { stalking, setStalking, updateStalkingLocalStorage, searchUser } = useUserContext();
     const { queryStalking, setQueryStalking, loading, setLoading } = useFiltersContext();
     const [selectedStalked, setSelectedStalked] = useState<FollowerProps | null>(null);
     const [stalkedName, setStalkedName] = useState<string>("");
+    const [stalkedUserNameDeleted, setStalkedUserNameDeleted] = useState<string | null>(null);
 
     useEffect(() => {
         setLoading(true);
@@ -46,13 +48,19 @@ export function StalkingPage() {
     }
 
     async function handleRemoveStalked() {
-        setStalking(stalking.filter((stalked) => stalked.login !== selectedStalked?.login));
+        if(selectedStalked) {
+            setStalkedUserNameDeleted(selectedStalked.login)
+        }
         setSelectedStalked(null);
+        setTimeout(() => {
+            setStalking(stalking.filter((stalked) => stalked.login !== selectedStalked?.login));
+            setStalkedUserNameDeleted(null);
+        }, 450)
     }
     
     return (
         <main className="flex py-4 px-2 justify-center h-screen dark:bg-zinc-950 duration-300">
-            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 duration-300">
+            <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 max-md:p-6 duration-300">
                 <div className="flex px-2 items-center bg-white rounded-[4px] border-2 border-transparent hover:border-cyan-500 has-[:focus]:border-cyan-400 dark:hover:border-zinc-950 dark:has-[:focus]:border-zinc-700 duration-150">
                     <SearchIcon size={28} fill="black"/>
                     <Input 
@@ -74,10 +82,10 @@ export function StalkingPage() {
                             </div>
                         ) : (
                             queryStalking.length > 0 ? (
-                                <div className="max-h-[65vh] pb-4 flex flex-wrap gap-4 overflow-y-auto scrollbar-hide">
+                                <div className="max-h-[67vh] pb-4 flex flex-wrap gap-4 overflow-y-auto scrollbar-hide">
                                     {
                                         queryStalking.map((stalked) => (
-                                            <Card key={stalked.login} variant="horizontal" className="relative gap-2 items-center w-full max-md:flex-col">
+                                            <Card key={stalked.login} variant="horizontal" className={twMerge("relative gap-2 items-center w-full max-md:flex-col", stalkedUserNameDeleted === stalked.login && "animate-deleted-item")}>
                                                 <Card.Header>
                                                     <Image
                                                         src={stalked.avatar_url}
@@ -100,7 +108,7 @@ export function StalkingPage() {
                                                         </Link>
                                                     </div>
                                                     <Button className="w-fit absolute top-2 right-2 group" onClick={() => handleSelectedStalked(stalked)}>
-                                                        <RemoveIcon fill="#ef4444" size={28} className="w-[28px] h-[28px] group-hover:fill-red-400"/>
+                                                        <RemoveIcon fill="#dc2626" size={28} className="w-[28px] h-[28px] group-hover:fill-red-400"/>
                                                     </Button>
                                                 </Card.Body>
                                             </Card>
@@ -120,7 +128,7 @@ export function StalkingPage() {
             {
                 selectedStalked && (
                     <div className="flex justify-center items-center py-4 fixed inset-0 w-screen h-screen bg-white dark:bg-zinc-950 z-[999] overflow-y-auto scrollbar-hide">
-                        <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-2/5 max-md:w-11/12">
+                        <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-2/5 max-md:w-11/12 max-md:p-6 animate-popup">
                             <div className="flex flex-col items-center gap-4">
                                 <Card className="bg-transparent items-center p-0 gap-2">
                                     <Card.Header>

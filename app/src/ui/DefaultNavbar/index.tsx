@@ -27,7 +27,7 @@ export function DefaultNavbar() {
   }
 
   return (
-    <Navbar className="sticky top-0 h-[10vh] z-[99] border-b-2 border-b-white dark:bg-indigo-600" style='dark'>
+    <Navbar className="sticky top-0 z-[999] border-b-2 border-b-white dark:bg-indigo-600" style='dark'>
       <Heading className="max-md:text-2xl">GitHub Stalker</Heading>
       <Navbar.Menu reponsive>
         <Navbar.MenuItem style='dark' className="rounded-[4px] p-2 group">
