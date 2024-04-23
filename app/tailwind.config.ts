@@ -48,6 +48,7 @@ const config: Config = {
         'deleted-item': {
           to: {
             transform: 'scale(0.25)',
+            opacity: '0'
           }
         },
         'light-icon': {
@@ -69,7 +70,7 @@ const config: Config = {
         'popup': 'popup 150ms linear',
         'light-icon': 'light-icon 300ms ease-in',
         'dark-icon': 'dark-icon 300ms ease-in',
-        'deleted-item': 'deleted-item 450ms linear forwards'
+        'deleted-item': 'deleted-item 300ms linear forwards'
       }
     },
   },

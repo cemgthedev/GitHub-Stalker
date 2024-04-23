@@ -54,7 +54,7 @@ export function StalkingPage() {
         setSelectedStalked(null);
         setTimeout(() => {
             setStalking(stalking.filter((stalked) => stalked.login !== selectedStalked?.login));
-        }, 300)
+        }, 200)
     }
     
     return (
@@ -76,7 +76,7 @@ export function StalkingPage() {
                     {
                         loading ? (
                             <div className="flex justify-center items-center gap-2">
-                                <LoadingIcon fill="#white" size={28} className="animate-spin"/>
+                                <LoadingIcon fill="white" size={28} className="animate-spin"/>
                                 <Label size="xs" className="text-slate-50">Carregando</Label>
                             </div>
                         ) : (
@@ -84,7 +84,7 @@ export function StalkingPage() {
                                 <div className="max-h-[67vh] pb-4 flex flex-col items-center gap-4 overflow-y-auto scrollbar-hide">
                                     {
                                         queryStalking.map((stalked) => (
-                                            <Card key={stalked.login} variant="horizontal" className={twMerge("relative gap-2 items-center w-full max-md:flex-col", stalkedUserNameDeleted === stalked.login && "animate-deleted-item")}>
+                                            <Card key={stalked.login} variant="horizontal" className={twMerge("flex-none relative gap-2 items-center w-full h-fit max-md:flex-col", stalkedUserNameDeleted === stalked.login && "animate-deleted-item")}>
                                                 <Card.Header>
                                                     <Image
                                                         src={stalked.avatar_url}
@@ -94,7 +94,7 @@ export function StalkingPage() {
                                                         className="rounded-full"
                                                     />
                                                 </Card.Header>
-                                                <Card.Body className="w-full">
+                                                <Card.Body className="w-full h-fit">
                                                     <Label size="xs" className="max-md:text-center">{stalked.login}</Label>
                                                     <div className="flex gap-2">
                                                         <Button style="dark" onClick={() => handleSearchUser(stalked.login)}>
