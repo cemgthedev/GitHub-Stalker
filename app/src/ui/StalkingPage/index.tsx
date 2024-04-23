@@ -54,8 +54,7 @@ export function StalkingPage() {
         setSelectedStalked(null);
         setTimeout(() => {
             setStalking(stalking.filter((stalked) => stalked.login !== selectedStalked?.login));
-            setStalkedUserNameDeleted(null);
-        }, 450)
+        }, 300)
     }
     
     return (
@@ -82,7 +81,7 @@ export function StalkingPage() {
                             </div>
                         ) : (
                             queryStalking.length > 0 ? (
-                                <div className="max-h-[67vh] pb-4 flex flex-wrap gap-4 overflow-y-auto scrollbar-hide">
+                                <div className="max-h-[67vh] pb-4 flex justify-center gap-4 overflow-y-auto scrollbar-hide">
                                     {
                                         queryStalking.map((stalked) => (
                                             <Card key={stalked.login} variant="horizontal" className={twMerge("relative gap-2 items-center w-full max-md:flex-col", stalkedUserNameDeleted === stalked.login && "animate-deleted-item")}>

@@ -46,17 +46,14 @@ const config: Config = {
           }
         },
         'deleted-item': {
-          from: {
-            tramsform: 'scale(1)'
-          },
           to: {
-            transform: 'scale(0)'
+            transform: 'scale(0.25)',
           }
         },
         'light-icon': {
           from: {
             opacity: '0',
-            transform: 'translateX(15px) scale(0.25)'
+            transform: 'translateX(15px) scale(0)'
           }
         },
         'dark-icon': {
