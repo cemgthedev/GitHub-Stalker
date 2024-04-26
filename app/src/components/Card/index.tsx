@@ -10,7 +10,7 @@ const CardVariants = tv({
         cardBodyStyle: 'flex flex-col gap-1',
     },
     variants: {
-        variant: {
+        orientation: {
             'vertical': {
                 cardStyle: 'flex-col',
             },
@@ -23,10 +23,10 @@ const CardVariants = tv({
 
 type CardProps = ComponentProps<'figure'> & VariantProps<typeof CardVariants>
 
-function Card({children, variant='vertical', className, ...props }: CardProps) {
+function Card({children, orientation='vertical', className, ...props }: CardProps) {
     const {
         cardStyle
-    } = CardVariants({variant})
+    } = CardVariants({orientation})
 
     return (
         <figure
@@ -69,3 +69,4 @@ Card.Body = function CardBody({children, className, ...props }: CardBodyProps) {
 }
 
 export { Card };
+

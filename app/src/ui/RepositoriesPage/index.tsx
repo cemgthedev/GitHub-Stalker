@@ -114,7 +114,7 @@ export function RepositoriesPage() {
                             </Button>
                             <Label className="text-slate-50 text-center">{selectedRepository.name}</Label>
                             <div className="flex justify-between">
-                                <Card variant="horizontal" className="bg-transparent p-0 gap-2 max-lg:flex-col max-lg:items-center">
+                                <Card orientation="horizontal" className="bg-transparent p-0 gap-2 max-lg:flex-col max-lg:items-center">
                                     <Card.Header>
                                         <CreatedAtIcon fill="white" size={64}/>
                                     </Card.Header>
@@ -123,7 +123,7 @@ export function RepositoriesPage() {
                                         <Text className="text-slate-50 max-lg:text-center">{getDate(selectedRepository.created_at)} as {getTime(selectedRepository.created_at)}</Text>
                                     </Card.Body>
                                 </Card>
-                                <Card variant="horizontal" className="bg-transparent p-0 gap-2 max-lg:flex-col max-lg:items-center">
+                                <Card orientation="horizontal" className="bg-transparent p-0 gap-2 max-lg:flex-col max-lg:items-center">
                                     <Card.Header>
                                         <UpdatedAtIcon fill="white" size={64}/>
                                     </Card.Header>
