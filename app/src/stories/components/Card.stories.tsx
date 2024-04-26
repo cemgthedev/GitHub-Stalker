@@ -1,9 +1,9 @@
-import { Text } from '@/components/Text';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import Image from 'next/image';
 import { Card } from '../../components/Card';
 import { Label } from '../../components/Label';
+import { Text } from '../../components/Text';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
