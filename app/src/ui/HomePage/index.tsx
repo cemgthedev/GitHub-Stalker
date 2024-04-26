@@ -24,7 +24,7 @@ export function HomePage() {
   return (
       <main className="flex flex-col gap-8 py-4 px-2 items-center h-screen overflow-y-auto dark:bg-zinc-950 duration-300">
         <div className="bg-zinc-950 dark:bg-indigo-600 flex flex-col p-8 gap-4 rounded-lg h-fit w-1/2 max-lg:w-4/6 max-md:w-11/12 max-md:p-6 duration-300">
-          <Card variant="horizontal" className="bg-transparent p-0 max-md:flex-col max-md:items-center w-full">
+          <Card orientation="horizontal" className="bg-transparent p-0 max-md:flex-col max-md:items-center w-full">
             <Card.Header>
               <Image
                   src={user?.avatar_url || ""}
@@ -40,7 +40,7 @@ export function HomePage() {
             </Card.Body>
           </Card>
           <div className="flex justify-between">
-            <Card variant="horizontal" className="bg-transparent p-0 gap-2 max-lg:flex-col max-lg:items-center">
+            <Card orientation="horizontal" className="bg-transparent p-0 gap-2 max-lg:flex-col max-lg:items-center">
               <Card.Header>
                 <CreatedAtIcon fill="white" size={64}/>
               </Card.Header>
@@ -49,7 +49,7 @@ export function HomePage() {
                 <Text className="text-slate-50 max-lg:text-center">{getDate(user?.created_at || "")} as {getTime(user?.created_at || "")}</Text>
               </Card.Body>
             </Card>
-            <Card variant="horizontal" className="bg-transparent p-0 gap-2 max-lg:flex-col max-lg:items-center">
+            <Card orientation="horizontal" className="bg-transparent p-0 gap-2 max-lg:flex-col max-lg:items-center">
               <Card.Header>
                 <UpdatedAtIcon fill="white" size={64}/>
               </Card.Header>

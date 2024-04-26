@@ -84,7 +84,7 @@ export function StalkingPage() {
                                 <div className="max-h-[67vh] pb-4 flex flex-col items-center gap-4 overflow-y-auto scrollbar-hide">
                                     {
                                         queryStalking.map((stalked) => (
-                                            <Card key={stalked.login} variant="horizontal" className={twMerge("flex-none relative gap-2 items-center w-full h-fit max-md:flex-col", stalkedUserNameDeleted === stalked.login && "animate-deleted-item")}>
+                                            <Card key={stalked.login} orientation="horizontal" className={twMerge("flex-none relative gap-2 items-center w-full h-fit max-md:flex-col", stalkedUserNameDeleted === stalked.login && "animate-deleted-item")}>
                                                 <Card.Header>
                                                     <Image
                                                         src={stalked.avatar_url}
