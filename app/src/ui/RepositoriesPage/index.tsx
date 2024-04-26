@@ -152,8 +152,8 @@ export function RepositoriesPage() {
                                     </div>
                                 )
                             }
-                            <div className="flex gap-4 justify-center items-center">
-                                <Card className="bg-transparent items-center p-0 gap-2 w-1/3">
+                            <div className="flex gap-2 justify-center items-center">
+                                <Card className="bg-transparent items-center p-0 gap-2 min-w-fit w-1/3">
                                     <Card.Header>
                                         <div className="flex justify-center items-center bg-emerald-500 w-[96px] h-[96px] max-md:w-[64px] max-md:h-[64px] rounded-full">
                                             <Heading className="text-slate-50 max-md:text-2xl">{selectedRepository.watchers_count}</Heading>
@@ -163,7 +163,7 @@ export function RepositoriesPage() {
                                         <Label size="sm" className="text-slate-50 max-md:text-lg">Visualizações</Label>
                                     </Card.Body>
                                 </Card>
-                                <Card className="bg-transparent items-center p-0 gap-2 w-1/3">
+                                <Card className="bg-transparent items-center p-0 gap-2 min-w-fit w-1/3">
                                     <Card.Header>
                                         <div className="flex justify-center items-center bg-emerald-500 w-[96px] h-[96px] max-md:w-[64px] max-md:h-[64px] rounded-full">
                                             <Heading className="text-slate-50 max-md:text-2xl">{selectedRepository.stargazers_count}</Heading>
@@ -173,7 +173,7 @@ export function RepositoriesPage() {
                                         <Label size="sm" className="text-slate-50 max-md:text-lg">Estrelas</Label>
                                     </Card.Body>
                                 </Card>
-                                <Card className="bg-transparent items-center p-0 gap-2 w-1/3">
+                                <Card className="bg-transparent items-center p-0 gap-2 min-w-fit w-1/3">
                                     <Card.Header>
                                         <div className="flex justify-center items-center bg-emerald-500 w-[96px] h-[96px] max-md:w-[64px] max-md:h-[64px] rounded-full">
                                             <Heading className="text-slate-50 max-md:text-2xl">{selectedRepository.forks_count}</Heading>

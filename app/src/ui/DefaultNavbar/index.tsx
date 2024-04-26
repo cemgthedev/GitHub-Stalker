@@ -86,7 +86,7 @@ export function DefaultNavbar() {
           }
           {
             openResponsiveMenu &&
-            <div className="bg-slate-50 border-2 border-zinc-400 absolute top-16 right-16 p-4 list-none rounded-lg animate-dropdown">
+            <div className="bg-slate-50 border-2 border-zinc-200 absolute top-16 right-16 p-4 list-none rounded-lg animate-dropdown">
               <Navbar.MenuItem style='light' className="rounded-[4px] p-2 group">
                 <Button 
                   className="p-0 font-semibold justify-start" 
