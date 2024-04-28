@@ -15,7 +15,7 @@ O objetivo deste projeto foi praticar as tecnologias que serão descritas mais a
 - zod
 - Tailwindcss
 - Tailwind Variants
-- Story Book
+- Storybook
 
 ## UI/UX Design
 - Sketching
