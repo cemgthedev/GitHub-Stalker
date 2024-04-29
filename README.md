@@ -1,5 +1,5 @@
 # GitHub-Stalker
-Projeto de um web site para você stalkear usuários do GitHub. [Ir para o site](https://bit.ly/GitHub-Stalker)
+Projeto de um web site para você stalkear usuários do GitHub. [Ir para o site](https://bit.ly/GitHubStalker)
 
 # Sobre
 Este projeto é um web site onde você pode buscar por nicknames de usuários do GitHub, de preferência do seu grupo de seguidores ou seu próprio nickname, e visualizar dados como informações pessoais, tecnologias, repositórios e outros seguidores.
